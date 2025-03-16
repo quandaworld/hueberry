@@ -31,6 +31,7 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "multer-storage-cloudinary": "^4.0.0",
+    "node-vibrant": "^4.0.3",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0"
   }
