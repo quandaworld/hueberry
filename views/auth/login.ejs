@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<body>
+  <div>
+    <h2>Sign in</h2>
+    
+    <% if (locals.error) { %>
+      <div role="alert">
+        <span><%= error %></span>
+      </div>
+    <% } %>
+
+    <form action="/auth/login" method="POST">
+      <div>
+        <div>
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" required placeholder="Username">
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" required placeholder="Password">
+        </div>
+      </div>
+
+      <div>
+        <button type="submit">Sign in</button>
+      </div>
+    </form>
+    
+    <div>
+      <a href="/auth/register">Don't have an account? Register</a>
+    </div>
+  </div>
+</body>
+</html>
