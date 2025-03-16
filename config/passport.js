@@ -5,7 +5,7 @@ const passportConfig = (passport) => {
   passport.use(
     new LocalStrategy((username, password, done) => {
       User.findOne({ username: username })
-        .then((user) => {
+        .then(user => {
           if (!user) {
             return done(null, false, {
               message: "That username is not registered on this site.",
