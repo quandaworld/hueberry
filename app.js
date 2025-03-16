@@ -7,6 +7,7 @@ const connectDB = require("./config/database");
 const passportConfig = require("./config/passport");
 const authRoutes = require("./routes/auth");
 const ensureAuthenticated = require("./middleware/auth");
+const assetRoutes = require("./routes/assets");
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -54,6 +55,7 @@ app.set("views", path.join(__dirname, "views"));
 
 // Use routes
 app.use("/auth", authRoutes);
+app.use("/assets", assetRoutes);
 
 // Home route
 app.get("/", (req, res) => {
