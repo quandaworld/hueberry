@@ -36,7 +36,7 @@ exports.postRegister = async (req, res, next) => {
     await user.save();
 
     // Login the user after registration
-    req.login(user, (err) => {
+    req.login(user, err => {
       if (err) {
         return next(err);
       }
