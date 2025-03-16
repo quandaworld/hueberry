@@ -19,7 +19,7 @@ exports.postRegister = async (req, res, next) => {
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.render("auth/register", {
-        error: "Username already exists",
+        error: "That username is taken. Try another.",
         firstName,
         lastName
       });

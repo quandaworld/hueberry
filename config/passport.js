@@ -8,7 +8,7 @@ const passportConfig = (passport) => {
         .then((user) => {
           if (!user) {
             return done(null, false, {
-              message: "That username is not registered",
+              message: "That username is not registered on this site.",
             });
           }
 
@@ -17,7 +17,7 @@ const passportConfig = (passport) => {
           if (isMatch) {
             return done(null, user);
           } else {
-            return done(null, false, { message: "Password incorrect" });
+            return done(null, false, { message: "The password is incorrect. Try again." });
           }
         })
         .catch((err) => console.log(err));
