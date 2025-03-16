@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Asset</title>
+</head>
+<body>
+  <h1>Upload New Asset</h1>
+  
+  <% if (locals.error) { %>
+    <div role="alert">
+      <span><%= error %></span>
+    </div>
+  <% } %>
+  
+  <form action="/assets/upload" method="POST" enctype="multipart/form-data">
+    <div>
+      <label for="title">File Name</label>
+      <input type="text" id="title" name="title" required>
+    </div>
+    
+    <div>
+      <label for="image">Image</label>
+      <input type="file" id="image" name="image" accept="image/*" required>
+    </div>
+    
+    <div>
+      <label for="tags">Tags</label>
+      <input type="text" id="tags" name="tags" placeholder="tag1, tag2, tag3">
+    </div>
+    
+    <button type="submit">Upload</button>
+  </form>
+  
+  <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>
