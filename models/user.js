@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const userSchema = new  mongoose.Schema({
   username: {
@@ -29,10 +29,6 @@ const userSchema = new  mongoose.Schema({
     enum: ['user', 'admin'],
     default: 'user'
   },
-  isActive: {
-    type: Boolean,
-    default: true
-  },
 });
 
 // Method to pre-save hook to hash password
@@ -48,6 +44,4 @@ userSchema.methods.comparePassword = function (inputPassword) {
   return bcrypt.compareSync(inputPassword, this.password);
 }
 
-const User = mongoose.model("User", userSchema);
-
-module.exports = User;
+module.exports = mongoose.model('User', userSchema);
