@@ -15,15 +15,17 @@ exports.uploadAsset = async (req, res) => {
       });
     }
 
+    // Get the file URL from Cloudinary response
+    const fileUrl = req.file.secure_url || req.file.path;
+    
     // Extract colors from the uploaded image
-    const colors = await extractColors(req.file.path);
+    const colors = await extractColors(fileUrl);
 
     // Create new asset
     const asset = new Asset({
-      title: req.body.title,
-      description: req.body.description,
-      fileUrl: req.file.path,
-      publicId: req.file.filename, // Cloudinary public ID
+      fileName: req.body.title || req.file.originalname,
+      fileUrl: fileUrl,
+      publicId: req.file.public_id || req.file.filename, // Cloudinary public ID
       fileType: req.file.mimetype,
       createdBy: req.user._id,
       colors: colors,
@@ -31,12 +33,14 @@ exports.uploadAsset = async (req, res) => {
     });
 
     await asset.save();
+
+    console.log('Flash success message:', 'Asset uploaded successfully');
     req.flash('success', 'Asset uploaded successfully');
     res.redirect('/dashboard');
   } catch (error) {
     console.error('Error uploading asset:', error);
     res.status(500).render('assets/upload', { 
-      error: 'Error uploading asset' 
+      error: errorMessage 
     });
   }
 };
