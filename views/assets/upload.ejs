@@ -13,6 +13,12 @@
       <span><%= error %></span>
     </div>
   <% } %>
+
+  <% if (locals.success && success.length > 0) { %>
+    <div class="alert-success">
+      <%= success %>
+    </div>
+  <% } %>
   
   <form action="/assets/upload" method="POST" enctype="multipart/form-data">
     <div>
@@ -22,7 +28,8 @@
     
     <div>
       <label for="image">Image</label>
-      <input type="file" id="image" name="image" accept="image/*" required>
+      <input type="file" id="image" name="image" accept="image/jpeg,image/png,image/gif" required>
+      <small>Accepted formats: JPG, JPEG, PNG, GIF</small>
     </div>
     
     <div>
