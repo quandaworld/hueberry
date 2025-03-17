@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Images</title>
+</head>
+<body>
+  <h1>My Images</h1>
+  
+  <% if (assets && assets.length > 0) { %>
+    <div class="asset-grid">
+      <% assets.forEach(asset => { %>
+        <div class="asset-card">
+          <img src="<%= asset.fileUrl %>" alt="<%= asset.title %>">
+          <h3><%= asset.title %></h3>
+          <div>
+            <% asset.colors.forEach(color => { %>
+              <span style="background-color: <%= color.hex %>; width: <%= color.percentage %>%"></span>
+            <% }) %>
+          </div>
+          <a href="/assets/<%= asset._id %>">View Details</a>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p>No images found. <a href="/assets/upload">Upload your first image</a></p>
+  <% } %>
+  
+  <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>
