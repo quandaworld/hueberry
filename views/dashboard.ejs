@@ -7,5 +7,19 @@
 </head>
 <body>
   <h1>Welcome, <%= user.firstName %></h1>
+  
+  <div>
+    <h2>Quick Actions</h2>
+    <ul>
+      <li><a href="/assets/upload">Upload New Image</a></li>
+      <li><a href="/assets">View My Images</a></li>
+      <li><a href="/auth/logout">Logout</a></li>
+    </ul>
+  </div>
+  
+  <div>
+    <h2>Your Recent Images</h2>
+    <p>You don't have any images yet. <a href="/assets/upload">Upload your first image</a></p>
+  </div>
 </body>
 </html>
