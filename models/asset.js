@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const assetSchema = new mongoose.Schema({
+  fileName: {
+    type: String,
+    required: true
+  },
   fileUrl: {
     type: String,
     required: true
@@ -27,7 +31,7 @@ const assetSchema = new mongoose.Schema({
   },
   colors: [
     {
-      hex: String,
+      rgb: [Number],
       percentage: Number
     }
   ],
