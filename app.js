@@ -3,14 +3,16 @@ const path = require("path");
 const session = require("express-session");
 const passport = require("passport");
 const flash = require("connect-flash");
+const dotenv = require("dotenv");
+dotenv.config();
+
+const ensureAuthenticated = require("./middleware/auth");
+
 const connectDB = require("./config/database");
 const passportConfig = require("./config/passport");
-const authRoutes = require("./routes/auth");
-const ensureAuthenticated = require("./middleware/auth");
-const assetRoutes = require("./routes/assets");
-const dotenv = require("dotenv");
 
-dotenv.config();
+const authRoutes = require("./routes/auth");
+const assetRoutes = require("./routes/assets");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
