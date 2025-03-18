@@ -1,5 +1,6 @@
 const Asset = require("../models/asset");
 const { extractColors } = require("../utils/colorAnalysis");
+const verifyOwnership = require("../utils/verifyOwnership"); 
 
 // Display upload form
 exports.getUploadForm = (req, res) => {
@@ -79,10 +80,8 @@ exports.getEditForm = async (req, res) => {
   try {
     const asset = await Asset.findById(req.params.id);
     
-    // Verify ownership
-    if (asset.createdBy.toString() !== req.user._id.toString()) {
-      req.flash('error', 'You do not have permission to edit this asset');
-      return res.redirect('/assets');
+    if (!verifyOwnership(asset, req.user, req, res, 'edit')) {
+      return;
     }
     
     res.render('assets/edit', { asset });
@@ -97,12 +96,6 @@ exports.getEditForm = async (req, res) => {
 exports.updateAsset = async (req, res) => {
   try {
     const asset = await Asset.findById(req.params.id);
-
-    // Verify ownership
-    if (asset.createdBy.toString() !== req.user._id.toString()) {
-      req.flash('error', 'You do not have permission to update this asset');
-      return res.redirect('/assets');
-    }
     
     // Process tags from comma-separated string
     let tags = [];
@@ -131,11 +124,8 @@ exports.deleteAsset = async (req, res) => {
   try {
     const asset = await Asset.findById(req.params.id);
     
-    // Verify ownership
-    // TODO: Make sure this flash message shows
-    if (asset.createdBy.toString() !== req.user._id.toString()) {
-      req.flash('error', 'You do not have permission to delete this asset');
-      return res.redirect('/assets/index');
+    if (!verifyOwnership(asset, req.user, req, res, 'delete')) {
+      return;
     }
     
     // Delete image from Cloudinary
