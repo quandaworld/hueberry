@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Visuals</title>
+  <title>Hueberry | My Visuals</title>
   <style></style>
 </head>
 <body>
@@ -13,27 +13,22 @@
   
   <% if (assets && assets.length > 0) { %>
     <div class="asset-grid">
-      <% assets.forEach(asset => { %>
+      <!-- TODO: current assets order is LIFO, keep the order but change layout to grid -->
+      <% assets.forEach(asset => { %> 
         <div class="asset-card" onclick="window.location.href='/assets/<%= asset._id %>'">
-          <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName || 'Visual asset' %>">
+          <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>">
           <div class="asset-overlay">
-            <a href="/assets/<%= asset._id %>" aria-label="View details for <%= asset.fileName || 'this asset' %>"></a>
-          </div>
-          <div class="asset-details">
-            <h3><%= asset.fileName || 'Untitled' %></h3>
-            <a href="/assets/<%= asset._id %>">View Details</a>
+            <a href="/assets/<%= asset._id %>" aria-label="View details for <%= asset.fileName %>"></a>
           </div>
         </div>
       <% }) %>
     </div>
-    
-    <a href="/assets/upload" class="upload-button">Upload New Image</a>
   <% } else { %>
     <div class="empty-state">
-      <p>No images found. <a href="/assets/upload">Upload your first image</a></p>
+      <p>No visuals found. <a href="/assets/upload">Upload your first visual</a></p>
     </div>
   <% } %>
   
-  <script src="./js/main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>
