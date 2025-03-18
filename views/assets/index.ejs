@@ -3,30 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Images</title>
+  <title>My Visuals</title>
+  <style></style>
 </head>
 <body>
-  <h1>My Images</h1>
+  <%- include('../partials/header') %>
+  
+  <h1>My Visuals</h1>
   
   <% if (assets && assets.length > 0) { %>
     <div class="asset-grid">
       <% assets.forEach(asset => { %>
-        <div class="asset-card">
-          <img src="<%= asset.fileUrl %>" alt="<%= asset.title %>">
-          <h3><%= asset.title %></h3>
-          <div>
-            <% asset.colors.forEach(color => { %>
-              <span style="background-color: <%= color.hex %>; width: <%= color.percentage %>%"></span>
-            <% }) %>
+        <div class="asset-card" onclick="window.location.href='/assets/<%= asset._id %>'">
+          <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName || 'Visual asset' %>">
+          <div class="asset-overlay">
+            <a href="/assets/<%= asset._id %>" aria-label="View details for <%= asset.fileName || 'this asset' %>"></a>
           </div>
-          <a href="/assets/<%= asset._id %>">View Details</a>
+          <div class="asset-details">
+            <h3><%= asset.fileName || 'Untitled' %></h3>
+            <a href="/assets/<%= asset._id %>">View Details</a>
+          </div>
         </div>
       <% }) %>
     </div>
+    
+    <a href="/assets/upload" class="upload-button">Upload New Image</a>
   <% } else { %>
-    <p>No images found. <a href="/assets/upload">Upload your first image</a></p>
+    <div class="empty-state">
+      <p>No images found. <a href="/assets/upload">Upload your first image</a></p>
+    </div>
   <% } %>
   
-  <a href="/dashboard">Back to Dashboard</a>
+  <script src="./js/main.js"></script>
 </body>
 </html>
