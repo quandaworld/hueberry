@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hueberry | Edit</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+  
+  <div class="container">
+    <div class="page-header">
+      <h1>Edit Visual</h1>
+    </div>
+    
+    <div class="edit-layout">
+      <!-- Left side: Image preview -->
+      <div class="asset-preview">
+        <div class="asset-image-container">
+          <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>">
+        </div>
+      </div>
+      
+      <!-- Right side: Edit form -->
+      <div class="edit-form">
+        <form action="/assets/edit/<%= asset._id %>" method="POST">
+          <input type="hidden" name="_method" value="PUT">
+          
+          <div class="form-group">
+            <label for="fileName">File Name</label>
+            <input
+              type="text"
+              id="fileName"
+              name="fileName"
+              value="<%= asset.fileName %>"
+              required
+              placeholder="Enter a title for your image"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="tags">Tags</label>
+            <input
+              type="text"
+              id="tags"
+              name="tags"
+              value="<%= asset.tags ? asset.tags.join(', ') : '' %>"
+              placeholder="Add tags, separated by commas"
+            />
+            <small>Separate tags with commas</small>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a href="/assets/<%= asset._id %>" class="btn btn-secondary">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
