@@ -1,0 +1,38 @@
+<nav>
+  <div>
+    <div>
+      <h1>Hueberry</h1>
+    </div>
+
+    <div>
+      <a href="/">Home</a>
+      <a href="/projects">Projects</a>
+      <a href="/assets">My Visuals</a>
+      <a href="/assets/upload">Upload</a>
+    </div>
+
+    <div>
+      <form action="/search" method="GET">
+        <input type="text" name="query" placeholder="Search assets..." />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <div>
+      <button>Notifications</button>
+    </div>
+
+    <div>
+      <button id="user-menu-button">
+        User
+        <!-- TODO: Replace with anonymous user icon -->
+      </button>
+
+      <div id="user-dropdown" style="display: none">
+        <a href="/profile">Your Profile</a>
+        <a href="/settings">Settings</a>
+        <a href="/auth/logout">Sign out</a>
+      </div>
+    </div>
+  </div>
+</nav>
