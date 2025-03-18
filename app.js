@@ -28,6 +28,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
+    cookie: { maxAge: 24 * 60 * 60 * 1000 }, // TODO: currently 24 hours for dev, change for production
   })
 );
 
