@@ -1,41 +1,41 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const assetSchema = new mongoose.Schema({
   fileName: {
     type: String,
-    required: true
+    required: true,
   },
   fileUrl: {
     type: String,
-    required: true
+    required: true,
   },
   publicId: {
     type: String,
-    required: true
+    required: true,
   },
   fileType: {
-    type: String
+    type: String,
   },
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    ref: "User",
+    required: true,
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   updatedAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   colors: [
     {
       rgb: [Number],
-      percentage: Number
-    }
+      percentage: Number,
+    },
   ],
-  tags: [String]
+  tags: [String],
 });
 
-module.exports = mongoose.model('Asset', assetSchema);
+module.exports = mongoose.model("Asset", assetSchema);
