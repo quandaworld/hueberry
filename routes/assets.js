@@ -17,4 +17,10 @@ router.get("/", assetController.getUserAssets);
 // Asset detail route
 router.get("/:id", assetController.getAssetDetails);
 
+// Asset delete route
+router.delete("/:id", assetController.deleteAsset);
+
+// Alternative delete route for browsers that don't support DELETE method
+router.post("/:id", assetController.deleteAsset);
+
 module.exports = router;
