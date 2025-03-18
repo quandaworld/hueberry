@@ -7,33 +7,33 @@
 </head>
 <body>
   <div>
-    <h2>Sign in</h2>
+    <div>
+      <p>WELCOME BACK<p>
+      <!-- TODO: add log in icon here -->
+      <h2>Log in to Your Account</h2>
+    </div>
     
-    <% if (locals.error) { %>
-      <div role="alert">
-        <span><%= error %></span>
-      </div>
-    <% } %>
+    <p>Log in to start organizing your creative universe</p>
 
     <form action="/auth/login" method="POST">
       <div>
         <div>
           <label for="username">Username</label>
-          <input id="username" name="username" type="text" required placeholder="Username">
+          <input id="username" name="username" type="text" required placeholder="e.g. capybara0124">
         </div>
         <div>
           <label for="password">Password</label>
-          <input id="password" name="password" type="password" required placeholder="Password">
+          <input id="password" name="password" type="password" required>
         </div>
       </div>
 
       <div>
-        <button type="submit">Sign in</button>
+        <button type="submit">Log In</button>
       </div>
     </form>
     
     <div>
-      <a href="/auth/register">Don't have an account? Register</a>
+      Don't have an account? <a href="/auth/register">Sign up and get started!</a>
     </div>
   </div>
 </body>
