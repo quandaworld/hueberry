@@ -6,20 +6,41 @@
   <title>Dashboard</title>
 </head>
 <body>
-  <h1>Welcome, <%= user.firstName %></h1>
+  <%- include('partials/header') %>
   
-  <div>
-    <h2>Quick Actions</h2>
-    <ul>
-      <li><a href="/assets/upload">Upload New Image</a></li>
-      <li><a href="/assets">View My Images</a></li>
-      <li><a href="/auth/logout">Logout</a></li>
-    </ul>
+  <div class="dashboard-projects">
+    <div>
+      <h2>Projects</h2>
+      <!-- TODO: 3 recent projects -->
+    </div>
+    <div>
+      <button>Create a project</button>
+      <button>View all projects</button>
+    </div>
+  </div>
+
+  <div class="dashboard-others">
+    <div>
+      <h2>Recent Uploads</h2>
+      <!-- TODO: 3 recent uploads -->
+      <button>View all uploads</button>
+    </div>
+    <div>
+      <h2>Notifications</h2>
+      <!-- TODO: 3 recent notifications -->
+      <button>View all notifications</button>
+    </div>
+    <div>
+      <h2>Analytics</h2>
+      <div>
+        <div>Total Projects</div>
+        <div>Total Assets Uploaded</div>
+        <div>Most Active Project</div>
+        <div>Trending Colors</div>
+      </div>
+    </div>
   </div>
   
-  <div>
-    <h2>Your Recent Images</h2>
-    <p>You don't have any images yet. <a href="/assets/upload">Upload your first image</a></p>
-  </div>
+  <script src="/js/main.js"></script>
 </body>
 </html>
