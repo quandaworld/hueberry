@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= asset.fileName %> | Hueberry</title>
+</head>
+<body>
+  <%- include('../partials/header') %>
+  
+  <div class="container">    
+    <div class="asset-details-container">
+      <!-- Image on top -->
+      <div class="asset-image-container">
+        <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>">
+      </div>
+      
+      <!-- Information below -->
+      <div class="asset-info">
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-label">File Name:</div>
+            <div class="info-value"><%= asset.fileName %></div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-label">Uploaded:</div>
+            <div class="info-value"><%= new Date(asset.createdAt).toLocaleDateString() %></div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-label">File Type:</div>
+            <div class="info-value"><%= asset.fileType.split('/')[1] %></div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-label">Owner:</div>
+            <div class="info-value"><%= asset.createdBy.firstName %> <%= asset.createdBy.lastName %></div>
+          </div>
+          
+          <% if (asset.tags && asset.tags.length > 0) { %>
+            <div class="info-item">
+              <div class="info-label">Tags:</div>
+              <div class="info-value tags-container">
+                <% asset.tags.forEach(tag => { %>
+                  <!-- TODO: style these tags -->
+                  <span class="tag"><%= tag %></span>
+                <% }) %>
+              </div>
+            </div>
+          <% } %>
+        </div>
+        
+        <!-- TODO: convert this palette numbers into color bar, consider keeping the numbers if cannot incorporate in bar -->
+        <% if (asset.colors && asset.colors.length > 0) { %>
+          <div class="color-palette">
+            <div class="info-label">Color Palette:</div>
+            <div class="colors-container">
+              <% asset.colors.forEach(color => { %>
+                <div class="color-item">
+                  <div class="color-swatch" style="background-color: rgb(<%= color.rgb.join(',') %>)"></div>
+                  <div class="color-info">
+                    <div class="color-rgb">RGB: <%= color.rgb.join(', ') %></div>
+                    <div class="color-percentage"><%= color.percentage %>%</div>
+                  </div>
+                </div>
+              <% }) %>
+            </div>
+          </div>
+        <% } %>
+        
+        <div class="asset-actions">
+          <a href="/assets/edit/<%= asset._id %>" class="btn btn-primary">Edit</a>
+          <button id="delete-btn" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- TODO: Delete Confirmation Modal -->
+  <div id="delete-modal" class="modal">
+    <div class="modal-content">
+      <h2>Delete Asset</h2>
+      <p>Are you sure you want to delete "<%= asset.fileName %>"? This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button id="cancel-delete" class="btn btn-secondary">Cancel</button>
+        <form action="/assets/delete/<%= asset._id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <script src="./js/main.js"></script>
+</body>
+</html>
