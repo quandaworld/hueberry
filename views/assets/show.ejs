@@ -4,12 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hueberry | <%= asset.fileName %></title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <%- include('../partials/header') %>
   
   <div class="container">    
     <div class="asset-details-container">
+      <!-- Color Bar (visual representation of color distribution) -->
+      <div class="color-bar">
+        <% asset.colors.forEach(color => { %>
+          <!-- TODO: should width be by percentage? -->
+          <div style="background-color: rgb(<%= color.rgb.join(',') %>); width: <%= color.percentage %>%;"</div>
+        <% }) %>
+      </div>
+
       <!-- Image on top -->
       <div class="asset-image-container">
         <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>">
@@ -55,12 +64,16 @@
         <% if (asset.colors && asset.colors.length > 0) { %>
           <div class="color-palette">
             <div class="info-label">Color Palette:</div>
+            
+            <!-- Individual color swatches with details -->
             <div class="colors-container">
               <% asset.colors.forEach(color => { %>
                 <div class="color-item">
-                  <div class="color-swatch" style="background-color: rgb(<%= color.rgb.join(',') %>)"></div>
+                  <div class="color-swatch" 
+                       style="background-color: rgb(<%= color.rgb.join(',') %>)">
+                  </div>
                   <div class="color-info">
-                    <div class="color-rgb">RGB: <%= color.rgb.join(', ') %></div>
+                    <div class="color-rgb">RGB: <%= color.rgb.join(',') %></div>
                     <div class="color-percentage"><%= color.percentage %>%</div>
                   </div>
                 </div>
