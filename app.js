@@ -3,6 +3,7 @@ const path = require("path");
 const session = require("express-session");
 const passport = require("passport");
 const flash = require("connect-flash");
+const methodOverride = require("method-override");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -21,6 +22,7 @@ connectDB();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 // Configure session
 app.use(
