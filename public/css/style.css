@@ -1,31 +1,3 @@
-.asset-card {
-  cursor: pointer;
-  position: relative;
-}
-
-.asset-card img {
-  max-width: 100%;
-  display: block;
-}
-
-.asset-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.asset-overlay a {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.asset-details {
-  padding: 10px;
-}
-
 /* Color palette section styling */
 .color-palette {
   margin: 20px 0;
