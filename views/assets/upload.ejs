@@ -1,45 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upload Asset</title>
-</head>
-<body>
-  <h1>Upload New Asset</h1>
-  
-  <% if (locals.error) { %>
-    <div role="alert">
-      <span><%= error %></span>
-    </div>
-  <% } %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload</title>
+  </head>
+  <body>
+    <%- include('../partials/header') %>
 
-  <% if (locals.success && success.length > 0) { %>
-    <div class="alert-success">
-      <%= success %>
+    <div class="container">
+      <h1>Upload to Hueberry</h1>
+
+      <form action="/assets/upload" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="title">File Name</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value="<%= locals.formData ? formData.title : '' %>"
+            required
+            placeholder="Enter a title for your image"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="image">Upload Image</label>
+          <div class="file-upload-container">
+            <input
+              type="file"
+              id="image"
+              name="image"
+              accept="image/jpeg,image/png,image/gif"
+              required
+            />
+            <div id="preview-container" style="display: none">
+              <img id="image-preview" src="#" alt="Image preview" />
+            </div>
+          </div>
+          <small>Accepted formats: JPG, JPEG, PNG, GIF (Max size: 5MB)</small>
+        </div>
+
+        <div class="form-group">
+          <label for="tags">Tags</label>
+          <input
+            type="text"
+            id="tags"
+            name="tags"
+            value="<%= locals.formData ? formData.tags : '' %>"
+            placeholder="Add tags, separated by commas"
+          />
+          <small>Add tags to make your assets easier to find later</small>
+        </div>
+
+        <div class="form-actions">
+          <a href="/assets" class="btn btn-secondary">Cancel</a>
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
+      </form>
     </div>
-  <% } %>
-  
-  <form action="/assets/upload" method="POST" enctype="multipart/form-data">
-    <div>
-      <label for="title">File Name</label>
-      <input type="text" id="title" name="title" required>
-    </div>
-    
-    <div>
-      <label for="image">Image</label>
-      <input type="file" id="image" name="image" accept="image/jpeg,image/png,image/gif" required>
-      <small>Accepted formats: JPG, JPEG, PNG, GIF</small>
-    </div>
-    
-    <div>
-      <label for="tags">Tags</label>
-      <input type="text" id="tags" name="tags" placeholder="tag1, tag2, tag3">
-    </div>
-    
-    <button type="submit">Upload</button>
-  </form>
-  
-  <a href="/dashboard">Back to Dashboard</a>
-</body>
+  </body>
 </html>
