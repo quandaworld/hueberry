@@ -36,9 +36,8 @@ exports.uploadAsset = async (req, res) => {
 
     await asset.save();
 
-    console.log("Flash success message:", "Asset uploaded successfully");
-    req.flash("success", "Asset uploaded successfully");
-    res.redirect("/assets/index");
+    console.log("Asset uploaded successfully");
+    res.redirect("/assets");
   } catch (error) {
     console.error("Error uploading asset:", error);
     res.status(500).render("assets/upload", {
@@ -56,7 +55,6 @@ exports.getUserAssets = async (req, res) => {
     res.render("assets/index", { assets });
   } catch (error) {
     console.error("Error getting assets:", error);
-    req.flash("error", "Error retrieving your assets");
     res.redirect("/dashboard");
   }
 };
@@ -68,15 +66,41 @@ exports.getAssetDetails = async (req, res) => {
       .populate("createdBy", "firstName lastName")
       .exec();
 
-    if (!asset) {
-      req.flash("error", "Asset not found");
-      return res.redirect("/assets");
-    }
-
     res.render("assets/show", { asset });
   } catch (error) {
     console.error("Error getting asset details:", error);
-    req.flash("error", "Error retrieving asset details");
+    req.flash('error', 'Asset not found');
     res.redirect("/assets");
+  }
+};
+
+// Delete an asset
+exports.deleteAsset = async (req, res) => {
+  try {
+    const asset = await Asset.findById(req.params.id);
+    
+    // Verify ownership (only allow users to delete their own assets)
+    // TODO: Make sure this flash message shows
+    if (asset.createdBy.toString() !== req.user._id.toString()) {
+      req.flash('error', 'You do not have permission to delete this asset');
+      return res.redirect('/assets/index');
+    }
+    
+    // Delete image from Cloudinary
+    if (asset.publicId) {
+      const cloudinary = require('cloudinary').v2;
+      await cloudinary.uploader.destroy(asset.publicId);
+    }
+    
+    // Delete the asset from the database
+    await Asset.findByIdAndDelete(req.params.id);
+    
+    // Flash message and redirect
+    req.flash('success', 'Asset deleted successfully');
+    res.redirect('/assets');
+  } catch (error) {
+    console.error('Error deleting asset:', error);
+    req.flash('error', 'Error deleting asset');
+    res.redirect('/assets');
   }
 };
