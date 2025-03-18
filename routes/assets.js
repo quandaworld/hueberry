@@ -5,7 +5,7 @@ const ensureAuthenticated = require("../middleware/auth");
 const { uploadImage } = require("../middleware/upload");
 
 // Ensure user is authenticated for all routes
-router.use(ensureAuthenticated);
+router.use(ensureAuthenticated); 
 
 // Upload form routes
 router.get("/upload", assetController.getUploadForm);
@@ -17,10 +17,11 @@ router.get("/", assetController.getUserAssets);
 // Asset detail route
 router.get("/:id", assetController.getAssetDetails);
 
-// Asset delete route
-router.delete("/:id", assetController.deleteAsset);
+// Edit routes
+router.get('/edit/:id', assetController.getEditForm);
+router.post('/edit/:id', assetController.updateAsset);
 
-// Alternative delete route for browsers that don't support DELETE method
+// Asset delete route
 router.post("/:id", assetController.deleteAsset);
 
 module.exports = router;
