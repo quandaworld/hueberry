@@ -3,45 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
+  <title>Sign Up</title>
 </head>
 <body>
   <div>
-    <h2>Create your account</h2>
-    
-    <% if (locals.error) { %>
-      <div role="alert">
-        <span><%= error %></span>
-      </div>
-    <% } %>
+    <div>
+      <p>WELCOME BACK<p>
+      <!-- TODO: add log in icon here -->
+      <h2>Join Hueberry</h2>
+    </div>
 
     <form action="/auth/register" method="POST">
       <div>
         <div>
           <label for="firstName">First Name</label>
-          <input id="firstName" name="firstName" type="text" required placeholder="First Name" value="<%= locals.firstName || '' %>">
+          <input id="firstName" name="firstName" type="text" required placeholder="Capybara" value="<%= locals.firstName || '' %>">
         </div>
         <div>
           <label for="lastName">Last Name</label>
-          <input id="lastName" name="lastName" type="text" required placeholder="Last Name" value="<%= locals.lastName || '' %>">
+          <input id="lastName" name="lastName" type="text" required placeholder="Nguyen" value="<%= locals.lastName || '' %>">
         </div>
         <div>
           <label for="username">Username</label>
-          <input id="username" name="username" type="text" required placeholder="Username" value="<%= locals.username || '' %>">
+          <input id="username" name="username" type="text" required placeholder="e.g. capybara0124" value="<%= locals.username || '' %>">
         </div>
         <div>
           <label for="password">Password</label>
-          <input id="password" name="password" type="password" required placeholder="Password">
+          <input id="password" name="password" type="password" required>
         </div>
       </div>
 
       <div>
-        <button type="submit">Register</button>
+        <button type="submit">Sign Up</button>
       </div>
     </form>
     
     <div>
-      <a href="/auth/login">Already have an account? Sign in</a>
+      Already a member?<a href="/auth/login"> Log in here!</a>
     </div>
   </div>
 </body>
