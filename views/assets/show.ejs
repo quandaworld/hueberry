@@ -15,7 +15,7 @@
       <div class="color-bar">
         <% asset.colors.forEach(color => { %>
           <!-- TODO: should width be by percentage? -->
-          <div style="background-color: rgb(<%= color.rgb.join(',') %>); width: <%= color.percentage %>%;"</div>
+          <div style="background-color: rgb(<%= color.rgb.join(',') %>); width: <%= color.percentage %>%;"></div>
         <% }) %>
       </div>
 

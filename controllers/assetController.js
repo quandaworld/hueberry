@@ -74,12 +74,64 @@ exports.getAssetDetails = async (req, res) => {
   }
 };
 
+// Get edit form
+exports.getEditForm = async (req, res) => {
+  try {
+    const asset = await Asset.findById(req.params.id);
+    
+    // Verify ownership
+    if (asset.createdBy.toString() !== req.user._id.toString()) {
+      req.flash('error', 'You do not have permission to edit this asset');
+      return res.redirect('/assets');
+    }
+    
+    res.render('assets/edit', { asset });
+  } catch (error) {
+    console.error('Error getting edit form:', error);
+    req.flash('error', 'Error retrieving asset');
+    res.redirect('/assets');
+  }
+};
+
+// Update asset
+exports.updateAsset = async (req, res) => {
+  try {
+    const asset = await Asset.findById(req.params.id);
+
+    // Verify ownership
+    if (asset.createdBy.toString() !== req.user._id.toString()) {
+      req.flash('error', 'You do not have permission to update this asset');
+      return res.redirect('/assets');
+    }
+    
+    // Process tags from comma-separated string
+    let tags = [];
+    if (req.body.tags) {
+      tags = req.body.tags.split(',').map(tag => tag.trim()).filter(tag => tag);
+    }
+    
+    // Update asset fields
+    asset.fileName = req.body.fileName || asset.fileName;
+    asset.tags = tags;
+    // TODO: add projects and comments here
+    
+    await asset.save();
+    
+    req.flash('success', 'Asset updated successfully');
+    res.redirect(`/assets/${asset._id}`);
+  } catch (error) {
+    console.error('Error updating asset:', error);
+    req.flash('error', 'Error updating asset');
+    res.redirect(`/assets/edit/${req.params.id}`);
+  }
+};
+
 // Delete an asset
 exports.deleteAsset = async (req, res) => {
   try {
     const asset = await Asset.findById(req.params.id);
     
-    // Verify ownership (only allow users to delete their own assets)
+    // Verify ownership
     // TODO: Make sure this flash message shows
     if (asset.createdBy.toString() !== req.user._id.toString()) {
       req.flash('error', 'You do not have permission to delete this asset');
