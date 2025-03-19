@@ -27,20 +27,16 @@
 
         <div class="project-assets-section">
           <% if (project.assets && project.assets.length > 0) { %>
-            <div class="assets-gallery">
+            <div class="assets-grid">
+              <!-- TODO: current assets order is LIFO, keep the order but change layout to grid -->
               <% project.assets.forEach(asset => { %>
-              <div class="asset-card">
-                <!-- TODO: current assets order is LIFO, keep the order but change layout to grid -->
-                <% project.assets.forEach(asset => { %>
-                  <div class="asset-card" onclick="window.location.href='/assets/<%= asset._id %>'">
-                    <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>" />
-                    <div class="asset-overlay">
-                      <a href="/assets/<%= asset._id %>" aria-label="View details for <%= asset.fileName %>"></a>
-                    </div>
+                <div class="asset-card" onclick="window.location.href='/assets/<%= asset._id %>'">
+                  <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>" />
+                  <div class="asset-overlay">
+                    <a href="/assets/<%= asset._id %>" aria-label="View details for <%= asset.fileName %>"></a>
                   </div>
-                <% }) %>
-              </div>
-              <% }); %>
+                </div>
+              <% }) %>
             </div>
           <% } else { %>
           <div class="empty-assets">
