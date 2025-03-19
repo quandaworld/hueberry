@@ -62,7 +62,6 @@ exports.uploadAsset = async (req, res) => {
 
         console.log(`Asset added to project ${project.name}`);
 
-        // Redirect to the project
         req.flash(
           "success",
           "Asset uploaded and added to project successfully"
@@ -71,7 +70,6 @@ exports.uploadAsset = async (req, res) => {
       }
     }
 
-    // No project selected 
     await asset.save();
 
     console.log("Asset uploaded successfully");
@@ -127,7 +125,17 @@ exports.getEditForm = async (req, res) => {
       return;
     }
 
-    res.render("assets/edit", { asset });
+    // Get all projects created by the current user
+    const projects = await Project.find({ createdBy: req.user._id }).sort({ name: 1 });
+
+    // Find which project this asset is in (if any)
+    const assetProject = await Project.findOne({ assets: asset._id });
+
+    res.render("assets/edit", {
+      asset,
+      projects,
+      assetProject,
+    });
   } catch (error) {
     console.error("Error getting edit form:", error);
     req.flash("error", "Error retrieving asset");
@@ -139,28 +147,60 @@ exports.getEditForm = async (req, res) => {
 exports.updateAsset = async (req, res) => {
   try {
     const asset = await Asset.findById(req.params.id);
-
-    // Process tags from comma-separated string
-    let tags = [];
-    if (req.body.tags) {
-      tags = req.body.tags
-        .split(",")
-        .map((tag) => tag.trim())
-        .filter((tag) => tag);
+    
+    if (!verifyOwnership(asset, req.user, req, res, 'update')) {
+      return;
     }
-
-    // Update asset fields
+    
+    // Update basic asset info
     asset.fileName = req.body.fileName || asset.fileName;
-    asset.tags = tags;
-    // TODO: add projects here
-
+    
+    // Process tags
+    if (req.body.tags) {
+      asset.tags = req.body.tags.split(',').map(tag => tag.trim()).filter(tag => tag);
+    } else {
+      asset.tags = [];
+    }
+    
+    // Find the current project this asset is in (if any)
+    const currentProject = await Project.findOne({ assets: asset._id });
+    
+    // Get the new project ID from the form
+    const newProjectId = req.body.projectId;
+    
+    // If project changed, update both models
+    if ((!currentProject && newProjectId) || (currentProject && newProjectId && currentProject._id.toString() !== newProjectId)) {     
+      // If asset is currently in a project, remove it
+      if (currentProject) {
+        currentProject.assets = currentProject.assets.filter(id => id.toString() !== asset._id.toString());
+        await currentProject.save();
+        asset.project = undefined; // Clear the project reference from the asset
+      }
+      
+      // Add to the new project if one was selected
+      if (newProjectId) {
+        const newProject = await Project.findById(newProjectId);
+        
+        if (newProject && newProject.createdBy.toString() === req.user._id.toString()) {
+          asset.project = newProject._id; // Update the asset's project reference
+          newProject.assets.push(asset._id);
+          await newProject.save();
+        }
+      }
+    } else if (currentProject && !newProjectId) {
+      // If removing from project
+      currentProject.assets = currentProject.assets.filter(id => id.toString() !== asset._id.toString());
+      await currentProject.save();
+      asset.project = undefined; // Clear the project reference from the asset
+    }
+    
     await asset.save();
-
-    req.flash("success", "Asset updated successfully");
+    
+    req.flash('success', 'Asset updated successfully');
     res.redirect(`/assets/${asset._id}`);
   } catch (error) {
-    console.error("Error updating asset:", error);
-    req.flash("error", "Error updating asset");
+    console.error('Error updating asset:', error);
+    req.flash('error', 'Error updating asset');
     res.redirect(`/assets/edit/${req.params.id}`);
   }
 };
