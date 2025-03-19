@@ -46,41 +46,48 @@
             <div class="info-label">Owner:</div>
             <div class="info-value"><%= asset.createdBy.firstName %> <%= asset.createdBy.lastName %></div>
           </div>
-          
-          <% if (asset.tags && asset.tags.length > 0) { %>
-            <div class="info-item">
-              <div class="info-label">Tags:</div>
-              <div class="info-value tags-container">
-                <% asset.tags.forEach(tag => { %>
-                  <!-- TODO: style these tags -->
-                  <span class="tag"><%= tag %></span>
-                <% }) %>
-              </div>
+
+          <div class="info-item">
+            <div class="info-label">Project:</div>
+            <div class="info-value">
+              <% if (asset.project) { %>
+                <a href="/projects/<%= asset.project._id %>" class="project-link"><%= asset.project.name %></a>
+              <% } else { %>
+                <span class="text-muted">Not in any project</span>
+              <% } %>
             </div>
-          <% } %>
-        </div>
-        
-        <!-- TODO: convert this palette numbers into color bar, consider keeping the numbers if cannot incorporate in bar -->
-        <% if (asset.colors && asset.colors.length > 0) { %>
-          <div class="color-palette">
-            <div class="info-label">Color Palette:</div>
-            
-            <!-- Individual color swatches with details -->
-            <div class="colors-container">
-              <% asset.colors.forEach(color => { %>
-                <div class="color-item">
-                  <div class="color-swatch" 
-                       style="background-color: rgb(<%= color.rgb.join(',') %>)">
-                  </div>
-                  <div class="color-info">
-                    <div class="color-rgb">RGB: <%= color.rgb.join(',') %></div>
-                    <div class="color-percentage"><%= color.percentage %>%</div>
-                  </div>
-                </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Tags:</div>
+            <div class="info-value tags-container">
+              <% asset.tags.forEach(tag => { %>
+                <!-- TODO: style these tags -->
+                <span class="tag"><%= tag %></span>
               <% }) %>
             </div>
           </div>
-        <% } %>
+        </div>
+        
+        <!-- TODO: convert this palette numbers into color bar, consider keeping the numbers if cannot incorporate in bar -->
+        <div class="color-palette">
+          <div class="info-label">Color Palette:</div>
+          
+          <!-- Individual color swatches with details -->
+          <div class="colors-container">
+            <% asset.colors.forEach(color => { %>
+              <div class="color-item">
+                <div class="color-swatch" 
+                     style="background-color: rgb(<%= color.rgb.join(',') %>)">
+                </div>
+                <div class="color-info">
+                  <div class="color-rgb">RGB: <%= color.rgb.join(',') %></div>
+                  <div class="color-percentage"><%= color.percentage %>%</div>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+        </div>
         
         <div class="asset-actions">
           <a href="/assets/edit/<%= asset._id %>" class="btn btn-primary">Edit</a>
