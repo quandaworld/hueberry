@@ -13,6 +13,7 @@ const passportConfig = require("./config/passport");
 
 const authRoutes = require("./routes/auth");
 const assetRoutes = require("./routes/assets");
+const projectRoutes = require("./routes/projects");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -60,6 +61,7 @@ app.set("views", path.join(__dirname, "views"));
 // Use routes
 app.use("/auth", authRoutes);
 app.use("/assets", assetRoutes);
+app.use("/projects", projectRoutes);
 
 // Home route
 app.get("/", (req, res) => {
