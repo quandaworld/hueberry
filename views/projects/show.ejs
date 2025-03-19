@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hueberry | <%= project.name %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+
+    <div class="container">
+      <div class="project-header-bar">
+        <div class="project-actions">
+          <a href="/projects/edit/<%= project._id %>" class="btn">Edit Project</a>
+        </div>
+      </div>
+
+      <div class="project-detail-container">
+        <div class="project-info">
+          <h1><%= project.name %></h1>
+
+          <div class="project-description">
+            <p><%= project.description %></p>
+          </div>
+        </div>
+
+        <div class="project-assets-section">
+          <% if (project.assets && project.assets.length > 0) { %>
+            <div class="assets-gallery">
+              <% project.assets.forEach(asset => { %>
+              <div class="asset-card">
+                <!-- TODO: current assets order is LIFO, keep the order but change layout to grid -->
+                <% project.assets.forEach(asset => { %>
+                  <div class="asset-card" onclick="window.location.href='/assets/<%= asset._id %>'">
+                    <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>" />
+                    <div class="asset-overlay">
+                      <a href="/assets/<%= asset._id %>" aria-label="View details for <%= asset.fileName %>"></a>
+                    </div>
+                  </div>
+                <% }) %>
+              </div>
+              <% }); %>
+            </div>
+          <% } else { %>
+          <div class="empty-assets">
+            <div class="empty-assets-content">
+              <p>No visuals found. <a href="/assets/upload?projectId=<%= project._id %>" class="btn btn-primary btn-lg">Add a new visual</a></p>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>
