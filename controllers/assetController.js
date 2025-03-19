@@ -1,6 +1,6 @@
 const Asset = require("../models/asset");
 const { extractColors } = require("../utils/colorAnalysis");
-const verifyOwnership = require("../utils/verifyOwnership"); 
+const { verifyOwnership } = require("../utils/verifyOwnership"); 
 
 // Display upload form
 exports.getUploadForm = (req, res) => {
@@ -106,7 +106,7 @@ exports.updateAsset = async (req, res) => {
     // Update asset fields
     asset.fileName = req.body.fileName || asset.fileName;
     asset.tags = tags;
-    // TODO: add projects and comments here
+    // TODO: add projects here
     
     await asset.save();
     
