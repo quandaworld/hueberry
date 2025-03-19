@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hueberry | Projects</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+  
+  <div class="container">
+    <div class="page-header">
+      <h1>Projects</h1>
+    </div>
+    
+    <div class="projects-container">
+      <% if (projects && projects.length > 0) { %>
+        <div class="projects-grid">
+          <a href="/projects/new" class="project-card card-btn">Create a project</a>
+          <% projects.forEach(project => { %>
+            <div class="project-card">
+              <div class="project-header">
+                <h2 class="project-title">
+                  <a href="/projects/<%= project._id %>"><%= project.name %></a>
+                </h2>
+              </div>
+              
+              <div class="project-meta">
+                <div class="meta-item">
+                  <span><%= project.assets ? project.assets.length : 0 %> assets</span>
+                </div>
+              </div>
+              
+              <% if (project.assets && project.assets.length > 0) { %>
+                <div class="project-thumbnails">
+                  <% 
+                    // Show up to 3 thumbnails
+                    const thumbnailLimit = Math.min(3, project.assets.length);
+                    for (let i = 0; i < thumbnailLimit; i++) {
+                  %>
+                    <div class="thumbnail">
+                      <img src="<%= project.assets[i].fileUrl %>" alt="Preview">
+                    </div>
+                  <% } %>
+                  
+                  
+                </div>
+              <% } %>
+              
+              <div class="project-actions">
+                <a href="/projects/<%= project._id %>" class="btn">View</a>
+                <a href="/projects/edit/<%= project._id %>" class="btn">Edit</a>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      <% } else { %>
+        <div class="empty-state">
+          <div class="empty-state-content">
+            <h2>No projects yet</h2>
+            <p>Create your first project to start organizing your visuals</p>
+            <a href="/projects/new" class="btn btn-primary btn-lg">Create Project</a>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
