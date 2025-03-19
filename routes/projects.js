@@ -12,6 +12,9 @@ router.get('/new', projectController.getNewProjectForm);
 // Create project
 router.post('/', projectController.createProject);
 
+// User projects
+router.get('/', projectController.getUserProjects);
+
 // Project details
 router.get('/:id', projectController.getProjectDetails);
 
