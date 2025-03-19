@@ -9,25 +9,27 @@
 <body>
   <%- include('../partials/header') %>
   
-  <h1>My Visuals</h1>
-  
-  <% if (assets && assets.length > 0) { %>
-    <div class="asset-grid">
-      <!-- TODO: current assets order is LIFO, keep the order but change layout to grid -->
-      <% assets.forEach(asset => { %> 
-        <div class="asset-card" onclick="window.location.href='/assets/<%= asset._id %>'">
-          <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>">
-          <div class="asset-overlay">
-            <a href="/assets/<%= asset._id %>" aria-label="View details for <%= asset.fileName %>"></a>
+  <div class="container">
+    <h1>My Visuals</h1>
+    
+    <% if (assets && assets.length > 0) { %>
+      <div class="asset-grid">
+        <!-- TODO: current assets order is LIFO, keep the order but change layout to grid -->
+        <% assets.forEach(asset => { %>
+          <div class="asset-card" onclick="window.location.href='/assets/<%= asset._id %>'">
+            <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>">
+            <div class="asset-overlay">
+              <a href="/assets/<%= asset._id %>" aria-label="View details for <%= asset.fileName %>"></a>
+            </div>
           </div>
-        </div>
-      <% }) %>
-    </div>
-  <% } else { %>
-    <div class="empty-state">
-      <p>No visuals found. <a href="/assets/upload">Upload your first visual</a></p>
-    </div>
-  <% } %>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <div class="empty-state">
+        <p>No visuals found. <a href="/assets/upload">Upload your first visual</a></p>
+      </div>
+    <% } %>
+  </div>
   
   <script src="/js/main.js"></script>
 </body>
