@@ -22,6 +22,10 @@ const assetSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    project: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Project",
+    },
     colors: [
       {
         rgb: [Number],
