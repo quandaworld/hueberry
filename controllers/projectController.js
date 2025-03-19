@@ -27,7 +27,7 @@ exports.createProject = async (req, res) => {
   } catch (error) {
     console.error('Error creating project:', error);
     res.render('projects/new', {
-      error: 'Error creating project: ' + error.message,
+      error: 'Error creating project',
       formData: req.body
     });
   }
@@ -50,7 +50,10 @@ exports.getProjectDetails = async (req, res) => {
   try {
     const project = await Project.findById(req.params.id)
       .populate('createdBy', 'firstName lastName')
-      .populate('assets');
+      .populate({
+        path: 'assets',
+        options: { sort: { updatedAt: -1 } }
+      });
     
     res.render('projects/show', {
       project,
