@@ -51,7 +51,7 @@
             <div class="info-label">Project:</div>
             <div class="info-value">
               <% if (asset.project) { %>
-                <a href="/projects/<%= asset.project._id %>" class="project-link"><%= asset.project.name %></a>
+                <span><%= asset.project.name %></span>
               <% } else { %>
                 <span class="text-muted">Not in any project</span>
               <% } %>
