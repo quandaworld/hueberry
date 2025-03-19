@@ -36,7 +36,15 @@ exports.createProject = async (req, res) => {
 // Get all projects for current user
 exports.getUserProjects = async (req, res) => {
   try {
-    const projects = await Project.find({ createdBy: req.user._id }).sort({ updatedAt: -1 });
+    // Find projects where user is the creator
+    const projects = await Project.find({ createdBy: req.user._id })
+      .populate({
+        path: 'assets',
+        select: 'fileUrl', // Only populate the fileUrl for thumbnails
+        options: { limit: 3 }
+      })
+      .sort({ updatedAt: -1 });
+    
     res.render('projects/index', { projects });
   } catch (error) {
     console.error('Error getting projects:', error);
