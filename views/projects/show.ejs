@@ -13,6 +13,9 @@
       <div class="project-header-bar">
         <div class="project-actions">
           <a href="/projects/edit/<%= project._id %>" class="btn">Edit Project</a>
+          <form action="/projects/<%= project._id %>?_method=DELETE" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-danger">Delete Project</button>
+          </form>
         </div>
       </div>
 
