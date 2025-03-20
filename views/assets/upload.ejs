@@ -11,67 +11,80 @@
     <%- include('../partials/header') %>
 
     <div class="container">
-      <div class="page-header">Upload to Hueberry</div>
-
-      <form action="/assets/upload" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="title">File Name</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value="<%= locals.formData ? formData.title : '' %>"
-            required
-            placeholder="Enter a title for your image"
-          />
+      <div class="form-container asset-upload">
+        
+        <div class="image-actions-container">
+          <img src="/img/screenshots/visualDemo.png" alt="Visual demo" class="project-demo">
         </div>
-
-        <div class="form-group">
-          <label for="image">Upload Image</label>
-          <div class="file-upload-container">
-            <input
-              type="file"
-              id="image"
-              name="image"
-              accept="image/jpeg,image/png,image/gif"
-              required
-            />
-            <div id="preview-container" style="display: none">
-              <img id="image-preview" src="#" alt="Image preview" />
+        
+        <div class="form-content">
+          <form action="/assets/upload" method="POST" enctype="multipart/form-data" class="project-form" id="uploadForm">
+            <div class="form-group">
+              <div class="form-header">
+                <h2 class="page-header">Upload to Hueberry</h2>
+              </div>
+              <label for="title">File Name</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                value="<%= locals.formData ? formData.title : '' %>"
+                required
+                placeholder="Enter a title for your image"
+                class="form-control"
+              />
             </div>
+
+            <div class="form-group">
+              <label for="image">Upload Image</label>
+              <div class="file-upload-container">
+                <input
+                  type="file"
+                  id="image"
+                  name="image"
+                  accept="image/jpeg,image/png,image/gif"
+                  required
+                  class="form-control"
+                />
+                <div id="preview-container" style="display: none">
+                  <img id="image-preview" src="#" alt="Image preview" />
+                </div>
+              </div>
+              <small>Accepted formats: JPG, JPEG, PNG, GIF (Max size: 5MB)</small>
+            </div>
+
+            <div class="form-group">
+              <label for="project">Project (Optional)</label>
+              <select id="project" name="projectId" class="form-control">
+                <option value="">-- Select a Project --</option>
+                <% if (locals.projects && projects.length > 0) { %>
+                  <% projects.forEach(project => { %>
+                    <option value="<%= project._id %>"><%= project.name %></option>
+                  <% }); %>
+                <% } %>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="tags">Tags</label>
+              <input
+                type="text"
+                id="tags"
+                name="tags"
+                value="<%= locals.formData ? formData.tags : '' %>"
+                placeholder="Add tags, separated by commas"
+                class="form-control"
+              />
+              <small>Add tags to make your assets easier to find later</small>
+            </div>
+          </form>
+          
+          <div class="form-actions">
+            <a href="/assets" class="btn btn-secondary">Cancel</a>
+            <button type="submit" form="uploadForm" class="btn btn-primary">Upload to Hueberry</button>
           </div>
-          <small>Accepted formats: JPG, JPEG, PNG, GIF (Max size: 5MB)</small>
         </div>
-
-        <div class="form-group">
-          <label for="project">Project (Optional)</label>
-          <select id="project" name="projectId" class="form-control">
-            <option value="">-- Select a Project --</option>
-            <% if (locals.projects && projects.length > 0) { %>
-              <% projects.forEach(project => { %>
-                <option value="<%= project._id %>"><%= project.name %></option>
-              <% }); %>
-            <% } %>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="tags">Tags</label>
-          <input
-            type="text"
-            id="tags"
-            name="tags"
-            value="<%= locals.formData ? formData.tags : '' %>"
-            placeholder="Add tags, separated by commas"
-          />
-          <small>Add tags to make your assets easier to find later</small>
-        </div>
-
-        <div class="form-actions">
-          <a href="/assets" class="btn btn-secondary">Cancel</a>
-          <button type="submit" class="btn btn-primary">Upload to Hueberry</button>
-        </div>
-      </form>
+      </div>
     </div>
 
     <%- include('../partials/footer') %>
