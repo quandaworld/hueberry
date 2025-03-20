@@ -1,3 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+	--border-color: #082F49;
+	--font-color: #082F49;
+	--background-color: #E5E7EB;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: "Quicksand", sans-serif;
+	color: var(--font-color);
+  text-decoration: none;
+  font-weight: 700;
+
+  /* border: 1px solid red; */
+}
+
+body {
+	background-color: var(--background-color);
+  margin: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.container {
+  margin: 2rem 3rem;
+}
+
+/* Header styling */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0 1.2rem;
+}
+
+.nav-left,
+.nav-right,
+.nav-links {
+  display: flex;
+  gap: 2.2rem;
+  align-items: center;
+}
+
+.nav-left {
+  gap: 3.5rem;
+}
+
+#upload {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  border-bottom: 5px solid var(--border-color);
+  background: #FACC15;
+}
+
+#search-bar {
+  border: 2px solid var(--border-color);
+  width: 500px; /* Increased width */
+  padding: 8px 15px;
+  border-radius: 30px;
+}
+
 /* Color palette section styling */
 .color-palette {
   margin: 20px 0;
@@ -46,7 +118,7 @@
 }
 
 .color-rgb {
-  color: #555555;
+  color: rgb(85, 85, 85);
   font-family: monospace;
 }
 
@@ -83,5 +155,172 @@
   
   .color-info {
     font-size: 0.8rem;
+  }
+}
+
+/* Project Grid with Fixed Sizes */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 5rem;
+  margin-top: 20px;
+}
+
+/* Fixed size project cards */
+.project-card {
+  background-color: white;
+  border-radius: 12px;
+  border-bottom: 5px solid var(--border-color);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 350px; /* Fixed height */
+  overflow: hidden; /* Prevent content from overflowing */
+}
+
+.card-btn {
+  border: 2px solid var(--border-color);
+  border-bottom: 5px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #34D399;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Project content styling */
+.project-header {
+  margin-bottom: 12px;
+}
+
+.project-title {
+  margin: 0;
+  font-size: 1.3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-title a {
+  color: #333;
+  text-decoration: none;
+}
+
+.project-title a:hover {
+  color: #3182ce;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.project-thumbnails {
+  display: flex;
+  gap: 5px;
+  margin-bottom: auto;
+  margin-top: auto;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(1, 1fr); /* 1 columns on smaller screens */
+  }
+}
+
+/* Asset grid - masonry layout with three columns */
+.asset-grid {
+  column-count: 3;
+  column-gap: 15px;
+  margin: 30px 0;
+}
+
+.asset-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  break-inside: avoid;
+  margin-bottom: 12px;
+  display: inline-block;
+  width: 100%;
+}
+
+.asset-card:hover {
+  transform: translateY(-5px);
+}
+
+.asset-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: auto; /* Keep image natural aspect ratio */
+}
+
+.asset-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+}
+
+.asset-card:hover .asset-overlay {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.asset-overlay a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .asset-grid {
+    column-count: 2; /* 2 columns on medium screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .asset-grid {
+    column-count: 1; /* 1 column on small screens */
   }
 }
