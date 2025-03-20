@@ -104,6 +104,60 @@ exports.addAssetToProject = async (req, res) => {
   }
 };
 
+// Get edit project form
+exports.getEditProjectForm = async (req, res) => {
+  try {
+    const project = await Project.findById(req.params.id);
+    
+    if (!project) {
+      req.flash('error', 'Project not found');
+      return res.redirect('/projects');
+    }
+    
+    if (!verifyOwnership(project, req.user, req, res, 'update')) {
+      return;
+    }
+    
+    res.render('projects/edit', { project });
+  } catch (error) {
+    console.error('Error getting edit project form:', error);
+    req.flash('error', 'Error retrieving project');
+    res.redirect('/projects');
+  }
+};
+
+// Update project
+exports.updateProject = async (req, res) => {
+  try {
+    const { name, description } = req.body;
+    const projectId = req.params.id;
+    
+    const project = await Project.findById(projectId);
+    
+    if (!project) {
+      req.flash('error', 'Project not found');
+      return res.redirect('/projects');
+    }
+    
+    if (!verifyOwnership(project, req.user, req, res, 'update')) {
+      return;
+    }
+    
+    // Update project
+    project.name = name;
+    project.description = description;
+    
+    await project.save();
+    
+    req.flash('success', 'Project updated successfully');
+    res.redirect(`/projects/${projectId}`);
+  } catch (error) {
+    console.error('Error updating project:', error);
+    req.flash('error', 'Error updating project');
+    res.redirect(`/projects/edit/${req.params.id}`);
+  }
+};
+
 // Remove asset from project
 exports.removeAssetFromProject = async (req, res) => {
   try {
@@ -124,6 +178,34 @@ exports.removeAssetFromProject = async (req, res) => {
   } catch (error) {
     console.error('Error removing asset from project:', error);
     req.flash('error', 'Error removing asset from project');
+    res.redirect('/projects');
+  }
+};
+
+// Delete project
+exports.deleteProject = async (req, res) => {
+  try {
+    const projectId = req.params.id;
+    
+    const project = await Project.findById(projectId);
+    
+    if (!project) {
+      req.flash('error', 'Project not found');
+      return res.redirect('/projects');
+    }
+    
+    if (!verifyOwnership(project, req.user, req, res, 'delete')) {
+      return;
+    }
+    
+    // Delete project
+    await Project.findByIdAndDelete(projectId);
+    
+    req.flash('success', 'Project deleted successfully');
+    res.redirect('/projects');
+  } catch (error) {
+    console.error('Error deleting project:', error);
+    req.flash('error', 'Error deleting project');
     res.redirect('/projects');
   }
 };
