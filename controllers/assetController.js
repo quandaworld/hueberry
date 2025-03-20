@@ -154,6 +154,7 @@ exports.updateAsset = async (req, res) => {
     
     // Update basic asset info
     asset.fileName = req.body.fileName || asset.fileName;
+    asset.notes = req.body.notes || "";
     
     // Process tags
     if (req.body.tags) {
