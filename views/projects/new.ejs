@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hueberry | Create New Project </title>
+  <link rel="stylesheet" href="/css/form.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -13,39 +14,46 @@
     <div class="page-header">Create New Project</div>
     
     <div class="form-container">
-      <form action="/projects" method="POST" class="project-form">
-        <div class="form-group">
-          <label for="projectName">Project Name</label>
-          <input 
-            type="text" 
-            id="projectName" 
-            name="name" 
-            required 
-            placeholder="Enter project name"
-            class="form-control"
-            value="<%= locals.formData ? formData.name : '' %>"
-          >
-        </div>
-        
-        <div class="form-group">
-          <label for="projectDescription">Description</label>
-          <textarea 
-            id="projectDescription" 
-            name="description" 
-            required
-            rows="4" 
-            placeholder="What is this project about?"
-            class="form-control"
-          ><%= locals.formData ? formData.description : '' %></textarea>
-        </div>
-        
+      <div class="form-content">
+        <form action="/projects" method="POST" class="project-form" id="projectForm">
+          <div class="form-group">
+            <label for="projectName">Project Name</label>
+            <input 
+              type="text" 
+              id="projectName" 
+              name="name" 
+              required 
+              placeholder="Enter project name"
+              class="form-control"
+              value="<%= locals.formData ? formData.name : '' %>"
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="projectDescription">Description</label>
+            <textarea 
+              id="projectDescription" 
+              name="description" 
+              required
+              rows="4" 
+              placeholder="What is this project about?"
+              class="form-control"
+            ><%= locals.formData ? formData.description : '' %></textarea>
+          </div>
+        </form>
+      </div>
+      
+      <div class="image-actions-container">
+        <img src="/img/screenshots/projectDemo.png" alt="Project demo" class="project-demo">
         <div class="form-actions">
           <a href="/projects" class="btn btn-secondary">Cancel</a>
-          <button type="submit" class="btn btn-primary">Create Project</button>
+          <button type="submit" form="projectForm" class="btn btn-primary">Create Project</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
+
+  <%- include('../partials/footer') %>
   
   <script src="/js/main.js"></script>
 </body>
