@@ -27,7 +27,7 @@
 
         <div class="project-assets-section">
           <% if (project.assets && project.assets.length > 0) { %>
-            <div class="assets-grid">
+            <div class="asset-grid">
               <!-- TODO: current assets order is LIFO, keep the order but change layout to grid -->
               <% project.assets.forEach(asset => { %>
                 <div class="asset-card" onclick="window.location.href='/assets/<%= asset._id %>'">
