@@ -11,40 +11,46 @@
   <%- include('../partials/header') %>
   
   <div class="container">
-    <div class="page-header">Edit Project</div>
-    
     <div class="form-container">
-      <form action="/projects/edit/<%= project._id %>?_method=PUT" method="POST" class="project-form">
-        
-        <div class="form-group">
-          <label for="projectName">Project Name</label>
-          <input 
-            type="text" 
-            id="projectName" 
-            name="name" 
-            required 
-            placeholder="Enter project name"
-            class="form-control"
-            value="<%= project.name %>"
-          >
-        </div>
-        
-        <div class="form-group">
-          <label for="projectDescription">Description</label>
-          <textarea 
-            id="projectDescription" 
-            name="description" 
-            rows="4" 
-            placeholder="What is this project about?"
-            class="form-control"
-          ><%= project.description %></textarea>
-        </div>
-        
+      <div class="form-header">
+        <h2 class="page-header">Edit Project</h2>
+      </div>
+      <div class="form-content">
+        <form action="/projects/edit/<%= project._id %>?_method=PUT" method="POST" class="project-form" id="editProjectForm">
+          <div class="form-group">
+            <label for="projectName">Project Name</label>
+            <input 
+              type="text" 
+              id="projectName" 
+              name="name" 
+              required 
+              placeholder="Enter project name"
+              class="form-control"
+              value="<%= project.name %>"
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="projectDescription">Description</label>
+            <textarea 
+              id="projectDescription" 
+              name="description" 
+              required
+              rows="4" 
+              placeholder="What is this project about?"
+              class="form-control"
+            ><%= project.description %></textarea>
+          </div>
+        </form>
+      </div>
+      
+      <div class="image-actions-container">
+        <img src="/img/screenshots/projectDemo.png" alt="Project demo" class="project-demo">
         <div class="form-actions">
           <a href="/projects/<%= project._id %>" class="btn btn-secondary">Cancel</a>
-          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="submit" form="editProjectForm" class="btn btn-primary">Save Changes</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 
