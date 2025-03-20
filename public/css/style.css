@@ -16,9 +16,10 @@
   /* border: 1px solid red; */
 }
 
-body {
+html, body {
 	background-color: var(--background-color);
   margin: 0;
+  height: 100%;
 }
 
 button {
@@ -32,7 +33,8 @@ button {
 }
 
 .container {
-  margin: 2rem 3rem;
+  margin: 1rem 2rem;
+  overflow: hidden;
 }
 
 /* Header styling */
@@ -41,18 +43,25 @@ button {
   justify-content: space-between;
   background-color: white;
   padding: 0 1.2rem;
+  flex-shrink: 0;
+  height: 60px;
 }
 
 .nav-left,
 .nav-right,
 .nav-links {
   display: flex;
-  gap: 2.2rem;
+  gap: 1.5rem;
   align-items: center;
 }
 
 .nav-left {
-  gap: 3.5rem;
+  gap: 2rem;
+}
+
+#nav-logo h1 {
+  font-size: 1.5rem;
+  margin: 0;
 }
 
 #upload {
@@ -65,9 +74,48 @@ button {
 
 #search-bar {
   border: 2px solid var(--border-color);
-  width: 500px; /* Increased width */
-  padding: 8px 15px;
+  width: 400px; 
+  padding: 5px 12px;
   border-radius: 30px;
+  font-size: 0.9rem;
+}
+
+/* Dashboard styling */
+#dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow: hidden;
+  height: calc(100vh - 70px);
+}
+
+.dashboard-projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white; /* will be updated */
+  border-radius: 12px;
+  padding: 1rem;
+  height: calc((100vh - 120px) / 2);
+}
+
+.dashboard-others {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  height: calc((100vh - 120px) / 2);
+}
+
+.dashboard-others > div {
+  background-color: white; /* will be updated */
+  border-radius: 12px;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.dashboard-others h2, .dashboard-projects h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
 }
 
 /* Color palette section styling */
