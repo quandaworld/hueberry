@@ -70,6 +70,16 @@ button {
   background: #FACC15;
 }
 
+#upload:hover {
+  background-color: #F59E0B;
+  transform: translateY(-2px);
+}
+
+#upload:active {
+  transform: translateY(0);
+  border-bottom-width: 2px;
+} 
+
 #search-bar {
   border: 2px solid var(--border-color);
   width: 400px; 
