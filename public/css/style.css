@@ -12,8 +12,6 @@
 	color: var(--font-color);
   text-decoration: none;
   font-weight: 700;
-
-  /* border: 1px solid red; */
 }
 
 html, body {
@@ -155,7 +153,6 @@ button {
   height: 80px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
   position: relative;
   cursor: pointer;
 }
@@ -351,7 +348,6 @@ button {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0);
-  transition: background 0.3s ease;
 }
 
 .asset-card:hover .asset-overlay {
