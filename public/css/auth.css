@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+	--border-color: #082F49;
+	--font-color: #082F49;
+	--background-color: #E5E7EB;
+  --accent-color: #FACC15;
+  --button-hover: #F59E0B;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: "Quicksand", sans-serif;
+	color: var(--font-color);
+  text-decoration: none;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+	background-color: var(--background-color);
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+/* Auth container styling */
+body > div {
+  background-color: white;
+  border-radius: 7px;
+  padding: 2rem;
+  max-width: 500px;
+  min-height: 590px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.header > p {
+  color: var(--button-hover);
+}
+
+/* Auth logo */
+#login-icon,
+#app-icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* Cancel icon styling */
+.cancel-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 15px;
+  height: 15px;
+}
+
+/* Welcome message */
+body > div > p {
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* Form styling */
+form {
+  margin-bottom: 1.5rem;
+}
+
+form > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+form > div:first-child > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Name row styling for register page */
+.name-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.name-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+input {
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 13px;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: #9CA3AF;
+  font-weight: 400;
+}
+
+/* Button styling */
+form > div:last-child {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+button[type="submit"] {
+  background-color: var(--accent-color);
+  color: var(--font-color);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  border: 2px solid var(--border-color);
+  border-bottom: 5px solid var(--border-color);
+  font-size: 1rem;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+  border-bottom-width: 2px;
+}
+
+/* Sign up link */
+.link-container {
+  text-align: center;
+  font-weight: 400;
+  color: white;
+  background-color: var(--border-color);
+  padding: 1rem 1.2rem;
+  margin: 0 -2rem -2rem -2rem;
+  border-radius: 0 0 7px 7px;
+  margin-top: auto;
+  font-size: 15px;
+}
+
+.link-container a {
+  color: #7DD3FC;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.link-container a:hover {
+  color: #41c2fe;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  body > div {
+    width: 95%;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+  
+  body > div > div:first-child h2 {
+    font-size: 1.5rem;
+  }
+  
+  input {
+    padding: 0.7rem 0.8rem;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+  }
+}
