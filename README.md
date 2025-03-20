@@ -5,4 +5,4 @@
 ![Landing Page](public/img/screenshots/landingPage.png)
 
 ## Technologies Used
-MongoDB, Express, Node.js, EJS, Tailwind CSS, Cloudinary.
+MongoDB, Express.js, Node.js, JavaScript, EJS, CSS, EJS, node-vibrant, Passport.js, Cloudinary, Heroku, Figma
