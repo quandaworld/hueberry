@@ -52,6 +52,10 @@ small {
   flex-direction: column;
 }
 
+#visual-preview {
+  border: none;
+}
+
 /* For asset upload page - image on left */
 .form-container.asset-upload {
   flex-direction: row;
@@ -64,16 +68,18 @@ small {
 }
 
 .form-container.asset-upload .image-actions-container {
-  width: 35%;
+  width: 45%;
   order: 1;
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  height: 100%;
 }
 
 .form-container.asset-upload .project-demo {
-  max-height: 500px;
+  max-height: 650px;
+  min-height: 500px;
   object-fit: contain;
   padding: 0;
   margin: 0 auto;
