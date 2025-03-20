@@ -21,6 +21,14 @@
   max-height: calc(100vh - 170px);
 }
 
+small {
+  font-weight: 500;
+}
+
+.asset-upload {
+  height: 700px;
+}
+
 .form-header {
   width: 100%;
 }
@@ -33,6 +41,9 @@
 
 .form-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .image-actions-container {
@@ -44,6 +55,7 @@
 /* For asset upload page - image on left */
 .form-container.asset-upload {
   flex-direction: row;
+  gap: 5rem;
 }
 
 .form-container.asset-upload .form-content {
@@ -53,18 +65,27 @@
 
 .form-container.asset-upload .image-actions-container {
   width: 35%;
-  margin-right: 2rem;
   order: 1;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .form-container.asset-upload .project-demo {
-  max-height: 300px;
+  max-height: 500px;
   object-fit: contain;
+  padding: 0;
+  margin: 0 auto;
+  display: block;
+  width: auto;
+  max-width: 100%;
 }
 
 .form-container.asset-upload .form-actions {
   order: 3;
-  margin-top: 1rem;
+  margin-top: auto;
+  padding-top: 2rem;
 }
 
 .project-demo {
@@ -76,11 +97,15 @@
   margin-bottom: 1.5rem;
 }
 
-.project-form {
+.project-form,
+.asset-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-right: 4rem;
+}
+
+.project-form {
+  margin-right: 4rem;;
 }
 
 .form-group {
@@ -108,6 +133,7 @@
   justify-content: flex-end;
   gap: 1rem;
   margin-top: 1rem;
+  width: 100%;
 }
 
 #projectDescription {
