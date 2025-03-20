@@ -14,11 +14,20 @@
   font-weight: 700;
 }
 
-html,
+html {
+  height: 100%;
+}
+
 body {
   background-color: var(--background-color);
   margin: 0;
-  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main, .container {
+  flex: 1;
 }
 
 button {
@@ -110,7 +119,6 @@ button {
   flex-direction: column;
   justify-content: space-between;
   background-color: white;
-  /* will be updated */
   border-radius: 12px;
   padding: 1rem;
   height: calc((100vh - 120px) / 2);
@@ -125,7 +133,6 @@ button {
 
 .dashboard-others > div {
   background-color: white;
-  /* will be updated */
   border-radius: 12px;
   padding: 1rem;
   overflow: hidden;
@@ -313,18 +320,29 @@ button {
   gap: 10px;
 }
 
+/* Footer styling */
+footer {
+  padding: 1rem 0;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 /* Responsive adjustments */
-@media (max-width: 1200px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    /* 2 columns on medium screens */
+@media (max-width: 576px) {
+  .asset-grid {
+    column-count: 1;
   }
 }
 
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: repeat(1, 1fr);
-    /* 1 columns on smaller screens */
   }
 }
 
@@ -355,7 +373,6 @@ button {
   height: auto;
   display: block;
   aspect-ratio: auto;
-  /* Keep image natural aspect ratio */
 }
 
 .asset-overlay {
@@ -381,13 +398,11 @@ button {
 @media (max-width: 992px) {
   .asset-grid {
     column-count: 2;
-    /* 2 columns on medium screens */
   }
 }
 
 @media (max-width: 576px) {
   .asset-grid {
     column-count: 1;
-    /* 1 column on small screens */
   }
 }
