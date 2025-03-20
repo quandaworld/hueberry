@@ -17,11 +17,13 @@ router.get("/", assetController.getUserAssets);
 // Asset detail route
 router.get("/:id", assetController.getAssetDetails);
 
-// Edit routes
+// Get edit form
 router.get('/edit/:id', assetController.getEditForm);
-router.post('/edit/:id', assetController.updateAsset);
+
+// Update asset
+router.put('/edit/:id', assetController.updateAsset);
 
 // Asset delete route
-router.post("/:id", assetController.deleteAsset);
+router.delete("/:id", assetController.deleteAsset);
 
 module.exports = router;
