@@ -9,10 +9,8 @@
 <body>
   <%- include('../partials/header') %>
   
-  <div class="container">
-    <div class="page-header">
-      <h1>Projects</h1>
-    </div>
+  <div class="container other">
+    <div class="page-header">Projects</div>
     
     <div class="projects-container">
       <% if (projects && projects.length > 0) { %>
@@ -24,10 +22,7 @@
                 <h2 class="project-title">
                   <a href="/projects/<%= project._id %>"><%= project.name %></a>
                 </h2>
-              </div>
-              
-              <div class="project-meta">
-                <div class="meta-item">
+                <div class="asset-count">
                   <span><%= project.assets ? project.assets.length : 0 %> assets</span>
                 </div>
               </div>
