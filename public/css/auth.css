@@ -1,25 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
 :root {
-	--border-color: #082F49;
-	--font-color: #082F49;
-	--background-color: #E5E7EB;
-  --accent-color: #FACC15;
-  --button-hover: #F59E0B;
+  --border-color: #082f49;
+  --font-color: #082f49;
+  --background-color: #e5e7eb;
+  --accent-color: #facc15;
+  --button-hover: #f59e0b;
 }
 
 * {
-	box-sizing: border-box;
-	font-family: "Quicksand", sans-serif;
-	color: var(--font-color);
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  color: var(--font-color);
   text-decoration: none;
   font-weight: 700;
   margin: 0;
   padding: 0;
 }
 
-html, body {
-	background-color: var(--background-color);
+html,
+body {
+  background-color: var(--background-color);
   margin: 0;
   height: 100%;
   display: flex;
@@ -140,7 +141,7 @@ input {
 }
 
 input::placeholder {
-  color: #9CA3AF;
+  color: #9ca3af;
   font-weight: 400;
 }
 
@@ -187,7 +188,7 @@ button[type="submit"]:active {
 }
 
 .link-container a {
-  color: #7DD3FC;
+  color: #7dd3fc;
   font-weight: 700;
   text-decoration: none;
 }
@@ -203,15 +204,15 @@ button[type="submit"]:active {
     padding: 1.5rem;
     border-radius: 12px;
   }
-  
+
   body > div > div:first-child h2 {
     font-size: 1.5rem;
   }
-  
+
   input {
     padding: 0.7rem 0.8rem;
   }
-  
+
   button[type="submit"] {
     width: 100%;
   }

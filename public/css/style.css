@@ -1,21 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
 :root {
-	--border-color: #082F49;
-	--font-color: #082F49;
-	--background-color: #E5E7EB;
+  --border-color: #082f49;
+  --font-color: #082f49;
+  --background-color: #e5e7eb;
 }
 
 * {
-	box-sizing: border-box;
-	font-family: "Quicksand", sans-serif;
-	color: var(--font-color);
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  color: var(--font-color);
   text-decoration: none;
   font-weight: 700;
 }
 
-html, body {
-	background-color: var(--background-color);
+html,
+body {
+  background-color: var(--background-color);
   margin: 0;
   height: 100%;
 }
@@ -67,22 +68,22 @@ button {
   border-radius: 8px;
   border: 2px solid var(--border-color);
   border-bottom: 5px solid var(--border-color);
-  background: #FACC15;
+  background: #facc15;
 }
 
 #upload:hover {
-  background-color: #F59E0B;
+  background-color: #f59e0b;
   transform: translateY(-2px);
 }
 
 #upload:active {
   transform: translateY(0);
   border-bottom-width: 2px;
-} 
+}
 
 #search-bar {
   border: 2px solid var(--border-color);
-  width: 400px; 
+  width: 400px;
   padding: 5px 12px;
   border-radius: 30px;
   font-size: 0.9rem;
@@ -108,7 +109,8 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: white; /* will be updated */
+  background-color: white;
+  /* will be updated */
   border-radius: 12px;
   padding: 1rem;
   height: calc((100vh - 120px) / 2);
@@ -122,13 +124,15 @@ button {
 }
 
 .dashboard-others > div {
-  background-color: white; /* will be updated */
+  background-color: white;
+  /* will be updated */
   border-radius: 12px;
   padding: 1rem;
   overflow: hidden;
 }
 
-.dashboard-others h2, .dashboard-projects h2 {
+.dashboard-others h2,
+.dashboard-projects h2 {
   margin-top: 0;
   font-size: 1.4rem;
 }
@@ -205,16 +209,16 @@ button {
   .colors-container {
     justify-content: center;
   }
-  
+
   .color-item {
     width: 70px;
   }
-  
+
   .color-swatch {
     width: 70px;
     height: 70px;
   }
-  
+
   .color-info {
     font-size: 0.8rem;
   }
@@ -223,7 +227,7 @@ button {
 /* Project Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); 
+  grid-template-columns: repeat(5, 1fr);
   gap: 3rem;
   margin-top: 10px;
 }
@@ -246,7 +250,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #34D399;
+  background-color: #34d399;
   text-decoration: none;
   font-weight: bold;
 }
@@ -312,13 +316,15 @@ button {
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns on medium screens */
   }
 }
 
 @media (max-width: 768px) {
   .projects-grid {
-    grid-template-columns: repeat(1, 1fr); /* 1 columns on smaller screens */
+    grid-template-columns: repeat(1, 1fr);
+    /* 1 columns on smaller screens */
   }
 }
 
@@ -348,7 +354,8 @@ button {
   width: 100%;
   height: auto;
   display: block;
-  aspect-ratio: auto; /* Keep image natural aspect ratio */
+  aspect-ratio: auto;
+  /* Keep image natural aspect ratio */
 }
 
 .asset-overlay {
@@ -373,12 +380,14 @@ button {
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .asset-grid {
-    column-count: 2; /* 2 columns on medium screens */
+    column-count: 2;
+    /* 2 columns on medium screens */
   }
 }
 
 @media (max-width: 576px) {
   .asset-grid {
-    column-count: 1; /* 1 column on small screens */
+    column-count: 1;
+    /* 1 column on small screens */
   }
 }
