@@ -41,6 +41,32 @@
   flex-direction: column;
 }
 
+/* For asset upload page - image on left */
+.form-container.asset-upload {
+  flex-direction: row;
+}
+
+.form-container.asset-upload .form-content {
+  flex: 1;
+  order: 2;
+}
+
+.form-container.asset-upload .image-actions-container {
+  width: 35%;
+  margin-right: 2rem;
+  order: 1;
+}
+
+.form-container.asset-upload .project-demo {
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.form-container.asset-upload .form-actions {
+  order: 3;
+  margin-top: 1rem;
+}
+
 .project-demo {
   width: 100%;
   height: auto;
@@ -132,13 +158,16 @@
 
 /* Responsive adjustments for form */
 @media (max-width: 768px) {
-  .form-container {
+  .form-container, .form-container.asset-upload {
     flex-direction: column;
   }
   
   .form-content,
-  .image-actions-container {
+  .image-actions-container,
+  .form-container.asset-upload .form-content,
+  .form-container.asset-upload .image-actions-container {
     width: 100%;
+    margin-right: 0;
   }
   
   .project-demo {
