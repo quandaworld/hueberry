@@ -4,25 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hueberry | Sign Up</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/auth.css">
 </head>
 <body>
   <div>
-    <div>
-      <p>WELCOME BACK<p>
-      <!-- TODO: add log in icon here -->
+    <a href="/" class="cancel-link">
+      <img src="/img/icons/cancel.svg" alt="Cancel" class="cancel-icon">
+    </a>
+    <div class="header">
+      <p>NICE TO MEET YOU<p>
+      <img src="/img/icons/hueberry.svg" alt="App logo" id="app-icon">
       <h2>Join Hueberry</h2>
     </div>
 
     <form action="/auth/register" method="POST">
       <div>
-        <div>
-          <label for="firstName">First Name</label>
-          <input id="firstName" name="firstName" type="text" required placeholder="Capybara" value="<%= locals.firstName || '' %>">
-        </div>
-        <div>
-          <label for="lastName">Last Name</label>
-          <input id="lastName" name="lastName" type="text" required placeholder="Nguyen" value="<%= locals.lastName || '' %>">
+        <div class="name-row">
+          <div class="name-field">
+            <label for="firstName">First Name</label>
+            <input id="firstName" name="firstName" type="text" required placeholder="Capybara" value="<%= locals.firstName || '' %>">
+          </div>
+          <div class="name-field">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" name="lastName" type="text" required placeholder="Nguyen" value="<%= locals.lastName || '' %>">
+          </div>
         </div>
         <div>
           <label for="username">Username</label>
@@ -39,7 +44,7 @@
       </div>
     </form>
     
-    <div>
+    <div class="link-container">
       Already a member?<a href="/auth/login"> Log in here!</a>
     </div>
   </div>

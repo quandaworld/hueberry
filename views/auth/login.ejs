@@ -4,17 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hueberry | Login</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/auth.css">
 </head>
 <body>
   <div>
-    <div>
+    <a href="/">
+      <img src="/img/icons/cancel.svg" alt="Cancel" class="cancel-icon">
+    </a>
+    <div class="header">
       <p>WELCOME BACK<p>
-      <!-- TODO: add log in icon here -->
+      <img src="/img/icons/login.svg" alt="Login icon" id="login-icon">
       <h2>Log in to Your Account</h2>
     </div>
     
-    <p>Log in to start organizing your creative universe</p>
+    <p>Log in to start organizing your creative universe.</p>
 
     <form action="/auth/login" method="POST">
       <div>
@@ -29,11 +32,11 @@
       </div>
 
       <div>
-        <button type="submit">Log In</button>
+        <button id="login-btn" type="submit">Log In</button>
       </div>
     </form>
     
-    <div>
+    <div class="link-container">
       Don't have an account? <a href="/auth/register">Sign up and get started!</a>
     </div>
   </div>
