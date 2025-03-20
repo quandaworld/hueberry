@@ -1,78 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hueberry | Edit</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/form.css">
-</head>
-<body>
-  <%- include('../partials/header') %>
-  
-  <div class="container">
-    <div class="page-header">Edit Visual</div>
-    
-    <div class="edit-layout">
-      <!-- Left side: Image preview -->
-      <div class="asset-preview">
-        <div class="asset-image-container">
-          <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>">
-        </div>
-      </div>
-      
-      <!-- Right side: Edit form -->
-      <div class="edit-form">
-        <form action="/assets/edit/<%= asset._id %>?_method=PUT" method="POST">
-          
-          <div class="form-group">
-            <label for="fileName">File Name</label>
-            <input
-              type="text"
-              id="fileName"
-              name="fileName"
-              value="<%= asset.fileName %>"
-              required
-              placeholder="Enter a title for your image"
-            />
-          </div>
-          
-          <div class="form-group">
-            <label for="tags">Tags</label>
-            <input
-              type="text"
-              id="tags"
-              name="tags"
-              value="<%= asset.tags ? asset.tags.join(', ') : '' %>"
-              placeholder="Add tags, separated by commas"
-            />
-            <small>Separate tags with commas</small>
-          </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hueberry | Edit</title>
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <%- include('../partials/header') %>
 
-          <div class="form-group">
-            <label for="projectId">Project</label>
-            <select id="projectId" name="projectId" class="form-control">
-              <option value="">-- No Project --</option>
-              <% if (locals.projects && projects.length > 0) { %>
-                <% projects.forEach(project => { %>
-                  <option value="<%= project._id %>" <%= (assetProject && assetProject._id.toString() === project._id.toString()) ? 'selected' : '' %>>
-                    <%= project.name %>
-                  </option>
-                <% }); %>
-              <% } else { %>
-                <option value="" disabled>No projects available</option>
-              <% } %>
-            </select>
-          </div>
+    <div class="container">
+      <div class="form-container asset-upload">
+        
+        <div class="image-actions-container">
+          <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>" class="project-demo" id="visual-preview">
+        </div>
+        
+        <div class="form-content">
+          <form action="/assets/edit/<%= asset._id %>?_method=PUT" method="POST" class="asset-form" id="editForm">
+            <div class="form-group">
+              <div class="form-header">
+                <h2 class="page-header">Edit Visual</h2>
+              </div>
+              <label for="fileName">File Name</label>
+              <input
+                type="text"
+                id="fileName"
+                name="fileName"
+                value="<%= asset.fileName %>"
+                required
+                placeholder="Enter a title for your image"
+                class="form-control"
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="projectId">Project</label>
+              <select id="projectId" name="projectId" class="form-control">
+                <option value="">-- No Project --</option>
+                <% if (locals.projects && projects.length > 0) { %>
+                  <% projects.forEach(project => { %>
+                    <option value="<%= project._id %>" <%= (assetProject && assetProject._id.toString() === project._id.toString()) ? 'selected' : '' %>>
+                      <%= project.name %>
+                    </option>
+                  <% }); %>
+                <% } else { %>
+                  <option value="" disabled>No projects available</option>
+                <% } %>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="tags">Tags</label>
+              <input
+                type="text"
+                id="tags"
+                name="tags"
+                value="<%= asset.tags ? asset.tags.join(', ') : '' %>"
+                placeholder="Add tags, separated by commas"
+                class="form-control"
+              />
+              <small>Add tags to make your visual easier to find later</small>
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Notes</label>
+              <textarea
+                id="notes"
+                name="notes"
+                placeholder="Add notes about this asset"
+                class="form-control"
+                rows="2"
+              ><%= asset.notes || '' %></textarea>
+              <small>Add any additional information or context about this visual</small>
+            </div>
+          </form>
           
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Save Changes</button>
             <a href="/assets/<%= asset._id %>" class="btn btn-secondary">Cancel</a>
+            <button type="submit" form="editForm" class="btn btn-primary">Save Changes</button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
 
   <%- include('../partials/footer') %>
 </body>
