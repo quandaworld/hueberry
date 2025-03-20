@@ -10,7 +10,7 @@ userMenuButton.addEventListener("click", function () {
   }
 });
 
-// Close the dropdown if the user clicks outside of it
+// Handle clicks on asset cards
 document.querySelectorAll(".asset-card").forEach((card) => {
   card.addEventListener("click", function () {
     const link = this.querySelector("a").getAttribute("href");
