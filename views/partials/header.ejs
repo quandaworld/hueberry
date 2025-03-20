@@ -21,10 +21,19 @@
       <div>
         <button><img src="/img/icons/noti.svg" alt="Notification icon"></button>
       </div>
-      <div>
+      <div class="user-menu-container">
         <button id="user-menu-button">
-          <a href="/auth/logout"><img src="/img/icons/user.svg" alt="User icon"></a>
+          <img src="/img/icons/user.svg" alt="User icon">
         </button>
+        <div id="user-dropdown" style="display: none;">
+          <ul class="dropdown-menu">
+            <li><a href="/dashboard">Home</a></li>
+            <li><a href="">Profile</a></li>
+            <li><a href="">Settings</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="/auth/logout">Log Out</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
