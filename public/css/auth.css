@@ -46,6 +46,7 @@ body > div {
   background-color: white;
   border-radius: 7px;
   padding: 2rem;
+  width: 500px;
   max-width: 500px;
   min-height: 590px;
   position: relative;
@@ -71,6 +72,11 @@ body > div {
 #app-icon {
   width: 50px;
   height: 50px;
+}
+
+#app-icon {
+  transform: scale(1.5);
+  transform-origin: center;
 }
 
 /* Cancel icon styling */
@@ -109,13 +115,13 @@ form > div:first-child > div {
 }
 
 /* Name row styling for register page */
-.name-row {
+form > div:first-child > .name-row {
   display: flex;
   flex-direction: row;
   gap: 1rem;
 }
 
-.name-field {
+form > div:first-child > .name-row > .name-field {
   flex: 1;
   display: flex;
   flex-direction: column;
