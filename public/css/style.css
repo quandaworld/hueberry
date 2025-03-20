@@ -144,90 +144,10 @@ button {
   font-size: 1.4rem;
 }
 
-/* Color palette section styling */
-.color-palette {
-  margin: 20px 0;
-}
-
-.info-label {
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #333333;
-}
-
-.colors-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 10px;
-}
-
-.color-item {
-  display: flex;
-  flex-direction: column;
-  width: 80px;
-}
-
-/* Color swatch styling */
-.color-swatch {
-  width: 80px;
-  height: 80px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-  cursor: pointer;
-}
-
-.color-swatch:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Color information below swatch */
-.color-info {
-  margin-top: 5px;
-  font-size: 0.85rem;
-  text-align: center;
-}
-
-.color-rgb {
-  color: rgb(85, 85, 85);
-  font-family: monospace;
-}
-
-.color-percentage {
-  font-weight: 600;
-  color: #333333;
-  margin-top: 2px;
-}
-
-/* Color bar */
-.color-bar {
-  display: flex;
-  height: 40px;
-  width: 100%;
-  overflow: hidden;
-  margin: 20px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .colors-container {
-    justify-content: center;
-  }
-
-  .color-item {
-    width: 70px;
-  }
-
-  .color-swatch {
-    width: 70px;
-    height: 70px;
-  }
-
-  .color-info {
-    font-size: 0.8rem;
+  .projects-grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
