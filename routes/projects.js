@@ -15,6 +15,12 @@ router.post('/', projectController.createProject);
 // User projects
 router.get('/', projectController.getUserProjects);
 
+// Edit project form
+router.get('/edit/:id', projectController.getEditProjectForm);
+
+// Update project
+router.put('/edit/:id', projectController.updateProject);
+
 // Project details
 router.get('/:id', projectController.getProjectDetails);
 
@@ -23,5 +29,8 @@ router.post('/:projectId/assets/:assetId', projectController.addAssetToProject);
 
 // Remove asset from project
 router.delete('/:projectId/assets/:assetId', projectController.removeAssetFromProject);
+
+// Delete project
+router.delete('/:id', projectController.deleteProject);
 
 module.exports = router;
