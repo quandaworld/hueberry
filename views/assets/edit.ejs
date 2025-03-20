@@ -10,9 +10,7 @@
   <%- include('../partials/header') %>
   
   <div class="container">
-    <div class="page-header">
-      <h1>Edit Visual</h1>
-    </div>
+    <div class="page-header">Edit Visual</div>
     
     <div class="edit-layout">
       <!-- Left side: Image preview -->
@@ -24,8 +22,7 @@
       
       <!-- Right side: Edit form -->
       <div class="edit-form">
-        <form action="/assets/edit/<%= asset._id %>" method="POST">
-          <input type="hidden" name="_method" value="PUT">
+        <form action="/assets/edit/<%= asset._id %>?_method=PUT" method="POST">
           
           <div class="form-group">
             <label for="fileName">File Name</label>
