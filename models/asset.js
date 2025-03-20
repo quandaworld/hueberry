@@ -33,6 +33,10 @@ const assetSchema = new mongoose.Schema(
       },
     ],
     tags: [String],
+    notes: {
+      type: String,
+      default: ""
+    },
   },
   { timestamps: true }
 );
