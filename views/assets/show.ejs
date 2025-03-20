@@ -91,8 +91,7 @@
         
         <div class="asset-actions">
           <a href="/assets/edit/<%= asset._id %>" class="btn btn-primary">Edit</a>
-          <form action="/assets/<%= asset._id %>" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
+          <form action="/assets/<%= asset._id %>?_method=DELETE" method="POST">
             <button type="submit" class="btn btn-danger">Delete</button>
           </form>
         </div>
