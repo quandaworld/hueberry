@@ -104,6 +104,13 @@ button {
 }
 
 /* Page header styling */
+.page-header-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
 .page-header {
   font-size: 1.4rem;
   padding: 0.5rem 0rem;
@@ -193,6 +200,48 @@ button {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
+}
+
+/* Project detail page header styling */
+.project-info .project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.project-title-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.project-info .project-header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  padding: 0.5rem 0rem;
+  font-weight: 700;
+}
+
+.asset-count-pill {
+  background-color: #426174;
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.project-info .project-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.project-description p {
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .asset-count {
