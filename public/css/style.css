@@ -180,6 +180,16 @@ button {
   flex-direction: column;
   height: 280px;
   overflow: hidden;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card:active {
+  transform: translateY(0);
+  border-bottom-width: 2px;
 }
 
 .card-btn {
