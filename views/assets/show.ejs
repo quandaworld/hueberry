@@ -14,7 +14,7 @@
   
   <div class="container">    
     <div class="asset-details-container">
-      <!-- Action buttons in the upper right corner -->
+
       <div class="asset-actions">
         <a href="/assets/edit/<%= asset._id %>" class="action-icon"><img src="/img/icons/edit.svg" alt="Edit icon"></a>
         <form action="/assets/<%= asset._id %>?_method=DELETE" method="POST">
@@ -22,12 +22,10 @@
         </form>
       </div>
       
-      <!-- Image on left -->
       <div class="asset-image-container">
         <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>">
       </div>
       
-      <!-- Information on right -->
       <div class="asset-info">
         <div class="info-grid">
           <div class="info-item">
