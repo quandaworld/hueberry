@@ -11,18 +11,20 @@
     <%- include('../partials/header') %>
 
     <div class="container">
-      <div class="project-header-bar">
-        <div class="project-actions">
-          <a href="/projects/edit/<%= project._id %>" class="btn">Edit Project</a>
-          <form action="/projects/<%= project._id %>?_method=DELETE" method="POST" style="display: inline;">
-            <button type="submit" class="btn btn-danger">Delete Project</button>
-          </form>
-        </div>
-      </div>
-
       <div class="project-detail-container">
         <div class="project-info">
-          <h1><%= project.name %></h1>
+          <div class="project-header">
+            <div class="project-title-container">
+              <h1><%= project.name %></h1>
+              <span class="asset-count-pill"><%= project.assets ? project.assets.length : 0 %> visuals</span>
+            </div>
+            <div class="project-actions">
+              <a href="/projects/edit/<%= project._id %>" class="btn"><img src="/img/icons/edit.svg" alt="Edit icon"></a>
+              <form action="/projects/<%= project._id %>?_method=DELETE" method="POST" style="display: inline;">
+                <button type="submit" class="btn btn-danger"><img src="/img/icons/delete.svg" alt="Delete icon"></button>
+              </form>
+            </div>
+          </div>
 
           <div class="project-description">
             <p><%= project.description %></p>
@@ -32,7 +34,14 @@
         <div class="project-assets-section">
           <% if (project.assets && project.assets.length > 0) { %>
             <div class="asset-grid">
-              <!-- TODO: current assets order is LIFO, keep the order but change layout to grid -->
+           
+              <a href="/assets/upload?projectId=<%= project._id %>" class="asset-card add-visual-btn">
+                <div class="add-visual-content">
+                  <span>+</span>
+                  <span>Add a visual</span>
+                </div>
+              </a>
+              
               <% project.assets.forEach(asset => { %>
                 <div class="asset-card" onclick="window.location.href='/assets/<%= asset._id %>'">
                   <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>" />
