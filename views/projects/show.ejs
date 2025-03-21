@@ -52,10 +52,13 @@
               <% }) %>
             </div>
           <% } else { %>
-          <div class="empty-assets">
-            <div class="empty-assets-content">
-              <p>No visuals found. <a href="/assets/upload?projectId=<%= project._id %>" class="btn btn-primary btn-lg">Add a new visual</a></p>
-            </div>
+          <div class="asset-grid">
+            <a href="/assets/upload?projectId=<%= project._id %>" class="asset-card add-visual-btn">
+              <div class="add-visual-content">
+                <span>+</span>
+                <span>Add a visual</span>
+              </div>
+            </a>
           </div>
           <% } %>
         </div>
