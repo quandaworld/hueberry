@@ -16,7 +16,12 @@
     <div class="projects-container">
       <% if (projects && projects.length > 0) { %>
         <div class="projects-grid">
-          <a href="/projects/new" class="project-card card-btn">Create a project</a>
+          <a href="/projects/new" class="project-card create-project-btn">
+            <div class="create-project-content">
+              <span>+</span>
+              <span>Create a project</span>
+            </div>
+          </a>
           <% projects.forEach(project => { %>
             <div class="project-card">
               <div class="project-header">

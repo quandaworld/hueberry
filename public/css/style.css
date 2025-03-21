@@ -386,6 +386,11 @@ footer p {
   transform: translateY(-5px);
 }
 
+.add-visual-btn:active {
+  transform: translateY(0);
+  border-bottom-width: 2px;
+}
+
 .add-visual-content {
   display: flex;
   align-items: center;
@@ -393,6 +398,38 @@ footer p {
 }
 
 .add-visual-content span:first-child {
+  font-size: 2rem;
+}
+
+/* Create project button styling */
+.create-project-btn {
+  background-color: #34d399;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid var(--border-color);
+  border-bottom: 5px solid var(--border-color);
+}
+
+.create-project-btn:hover {
+  background-color: #10b981;
+  transform: translateY(-5px);
+}
+
+.create-project-btn:active {
+  transform: translateY(0);
+  border-bottom-width: 2px;
+}
+
+.create-project-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.create-project-content span:first-child {
   font-size: 2rem;
 }
 
