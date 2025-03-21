@@ -24,18 +24,10 @@
           </a>
           <% projects.forEach(project => { %>
             <div class="project-card" onclick="window.location.href='/projects/<%= project._id %>'">
-              <div class="project-header">
-                <h2 class="project-title"><%= project.name %></a></h2>
-                <div class="asset-count">
-                  <span><%= project.assets ? project.assets.length : 0 %> assets</span>
-                </div>
-              </div>
-              
               <% if (project.assets && project.assets.length > 0) { %>
                 <div class="project-thumbnails">
                   <% 
-                    // Show up to 3 thumbnails
-                    const thumbnailLimit = Math.min(3, project.assets.length);
+                    const thumbnailLimit = Math.min(4, project.assets.length);
                     for (let i = 0; i < thumbnailLimit; i++) {
                   %>
                     <div class="thumbnail">
@@ -45,9 +37,12 @@
                   
                 </div>
               <% } %>
-              
-              <div class="project-actions">
-                <a href="/projects/edit/<%= project._id %>" class="btn"><img src="/img/icons/edit.svg" alt="Edit icon"></a>
+
+              <div class="project-header">
+                <h2 class="project-title"><%= project.name %></h2>
+                <div class="asset-count">
+                  <span style="font-weight: 500;"><%= project.assets ? project.assets.length : 0 %> visuals</span>
+                </div>
               </div>
             </div>
           <% }); %>

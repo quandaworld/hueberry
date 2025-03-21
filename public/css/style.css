@@ -181,6 +181,7 @@ button {
   height: 280px;
   overflow: hidden;
   cursor: pointer;
+  position: relative;
 }
 
 .project-card:hover {
@@ -209,7 +210,9 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-top: auto;
+  margin-bottom: 5px;
+  padding-top: 12px;
 }
 
 /* Project detail page header styling */
@@ -276,20 +279,21 @@ button {
 }
 
 .project-thumbnails {
-  display: flex;
-  gap: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 4px;
   margin-bottom: auto;
   margin-top: auto;
   flex-grow: 1;
-  align-items: center;
+  height: 180px;
 }
 
 .thumbnail {
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
   border-radius: 4px;
   overflow: hidden;
-  flex-shrink: 0;
 }
 
 .thumbnail img {
