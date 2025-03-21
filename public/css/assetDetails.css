@@ -17,21 +17,6 @@
   flex-direction: row;
 }
 
-/* Color bar styling */
-.color-bar {
-  display: flex;
-  width: 100%;
-  height: 8px;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 1rem;
-  margin-top: 0.5rem;
-}
-
-.color-palette .color-bar {
-  margin-bottom: 1rem;
-}
-
 /* Asset image container styling - left side */
 .asset-image-container {
   width: 50%;
@@ -43,7 +28,6 @@
   height: auto;
   max-height: 600px;
   object-fit: contain;
-  border-radius: 8px;
 }
 
 /* Asset info styling - right side */
@@ -96,38 +80,6 @@
   border-radius: 20px;
   font-weight: 500;
   border: 1px solid var(--border-color);
-}
-
-/* Color palette styling */
-.color-palette {
-  margin-bottom: 2rem;
-}
-
-.colors-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
-.color-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.color-swatch {
-  width: 16px;
-  height: 16px;
-  border-radius: 8px;
-}
-
-.color-percentage {
-  font-size: 0.9rem;
-  font-weight: 400;
 }
 
 /* Asset actions styling */
