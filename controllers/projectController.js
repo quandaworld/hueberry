@@ -41,7 +41,6 @@ exports.getUserProjects = async (req, res) => {
       .populate({
         path: 'assets',
         select: 'fileUrl', // Only populate the fileUrl for thumbnails
-        options: { limit: 3 }
       })
       .sort({ updatedAt: -1 });
     
