@@ -63,23 +63,24 @@
 
 .info-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 0.25rem;
+}
+
+#fileName {
+  font-size: 1.5rem;
 }
 
 .info-label {
   font-weight: 700;
-  font-size: 0.9rem;
-  color: #4B5563;
 }
 
-.info-value {
+.info-value, .info-value span {
   font-weight: 500;
-  font-size: 1rem;
 }
 
 .text-muted {
-  color: #9CA3AF;
+  font-weight: 500;
 }
 
 /* Tags styling */
@@ -93,8 +94,7 @@
   background-color: white;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 500;
   border: 1px solid var(--border-color);
 }
 
@@ -104,32 +104,30 @@
 }
 
 .colors-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
   gap: 1rem;
   margin-top: 0.5rem;
 }
 
 .color-item {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 0.5rem;
+  width: 100%;
 }
 
 .color-swatch {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-  border: 1px solid #E5E7EB;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
 }
 
-.color-info {
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.color-rgb {
-  margin-bottom: 0.25rem;
+.color-percentage {
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 
 /* Asset actions styling */
