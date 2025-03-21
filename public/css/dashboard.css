@@ -17,17 +17,12 @@
   margin-bottom: 0;
 }
 
-.dashboard-section-header h2 {
-  margin: 0;
-  font-size: 1.4rem;
-}
-
 .dashboard-others {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
-  height: calc((100vh - 120px) / 2);
-  min-height: 400px;
+  height: auto;
+  min-height: 250px;
 }
 
 .dashboard-others > div {
@@ -36,11 +31,15 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
+/* Consolidated heading styles */
+.dashboard-section-header h2,
 .dashboard-others h2,
-.dashboard-projects h2 {
-  margin-top: 0;
+.dashboard-projects h2,
+.section-header h2 {
+  margin: 0;
   font-size: 1.4rem;
 }
 
@@ -109,11 +108,6 @@
   height: 105px;
 }
 
-#view-all-btn {
-  border: 2px solid rgb(202, 201, 201);
-  background-color: transparent;
-}
-
 .dashboard-btn:hover {
   background-color: #10b981;
   transform: translateY(-5px);
@@ -124,23 +118,20 @@
   border-bottom-width: 2px;
 }
 
-/* Remove hover and active effects for the view all projects button */
-#view-all-btn:hover,
-#view-all-btn:active {
-  transform: none;
-}
-
-/* Style for the view all buttons in dashboard sections */
+#view-all-btn,
 .dashboard-others .dashboard-btn {
   height: 50px;
-  border: 2px solid rgb(202, 201, 201);
+  border: 1px solid rgb(202, 201, 201);
   background-color: transparent;
 }
 
+#view-all-btn div,
 .dashboard-others .dashboard-btn div {
   color: #3182ce;
 }
 
+#view-all-btn:hover,
+#view-all-btn:active,
 .dashboard-others .dashboard-btn:hover,
 .dashboard-others .dashboard-btn:active {
   transform: none;
@@ -150,20 +141,33 @@
 .analytics-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  height: 100%;
+  margin-top: 10px;
 }
 
 .analytics-item {
   background-color: white;
-  padding: 15px;
+  padding: 10px;
   border-radius: 12px;
   border-bottom: 5px solid var(--border-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .analytics-value {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-top: 5px;
+}
+
+.analytics-item:nth-child(1) .analytics-value,
+.analytics-item:nth-child(2) .analytics-value {
+  font-size: 2.5rem;
 }
 
 .analytics-label {
@@ -177,8 +181,7 @@
   gap: 10px;
   margin-top: 5px;
   flex: 1;
-  overflow-y: auto;
-  max-height: 250px;
+  overflow: hidden;
 }
 
 .recent-upload-item {
@@ -228,10 +231,6 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
-}
-
-.section-header h2 {
-  margin: 0;
 }
 
 .view-all-link {
