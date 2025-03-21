@@ -1,0 +1,213 @@
+.dashboard-projects {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+}
+
+#dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow: hidden;
+  height: calc(100vh - 70px);
+}
+
+.dashboard-others {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  height: calc((100vh - 120px) / 2);
+}
+
+.dashboard-others > div {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.dashboard-others h2,
+.dashboard-projects h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+.project-cards-container {
+  display: contents;
+}
+
+.dashboard-project-card {
+  background-color: white;
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  border-bottom: 5px solid var(--border-color);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 220px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.dashboard-project-card:hover {
+  transform: translateY(-5px);
+}
+
+.dashboard-project-card .project-thumbnails {
+  height: 140px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 4px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dashboard-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dashboard-btn {
+  background-color: #34d399;
+  color: var(--font-color);
+  font-weight: 700;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid var(--border-color);
+  border-bottom: 5px solid var(--border-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 105px;
+}
+
+#view-all-btn {
+  border: 2px solid rgb(202, 201, 201);
+  background-color: transparent;
+}
+
+.dashboard-btn:hover {
+  background-color: #10b981;
+  transform: translateY(-5px);
+}
+
+.dashboard-btn:active {
+  transform: translateY(0);
+  border-bottom-width: 2px;
+}
+
+/* Remove hover and active effects for the view all projects button */
+#view-all-btn:hover,
+#view-all-btn:active {
+  transform: none;
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.analytics-item {
+  background-color: #f3f4f6;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.analytics-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.analytics-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.recent-uploads-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.recent-upload-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+}
+
+.recent-upload-thumbnail {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.recent-upload-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recent-upload-info {
+  flex: 1;
+}
+
+.recent-upload-name {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.recent-upload-date {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-header h2 {
+  margin: 0;
+}
+
+.view-all-link {
+  font-size: 0.9rem;
+  color: #3182ce;
+}
+
+/* Asset count pill for dashboard */
+.asset-count-pill {
+  background-color: #426174;
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+}
