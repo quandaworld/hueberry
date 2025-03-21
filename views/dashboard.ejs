@@ -12,7 +12,9 @@
   <%- include('partials/header') %>
   
   <div class="container" id="dashboard-container">
-    <h2>Recent Projects</h2>
+    <div class="dashboard-section-header">
+      <h2>Recent Projects</h2>
+    </div>
     <div class="dashboard-projects">
       <% if (recentProjects && recentProjects.length > 0) { %>
         <% recentProjects.forEach(project => { %>
@@ -63,7 +65,6 @@
       <div>
         <div class="section-header">
           <h2>Recent Uploads</h2>
-          <a href="/assets" class="view-all-link">View all</a>
         </div>
         
         <% if (recentUploads && recentUploads.length > 0) { %>
@@ -85,14 +86,21 @@
         <% } else { %>
           <p>No uploads yet</p>
         <% } %>
+        
+        <a href="/assets" class="dashboard-btn">
+          <div>View all uploads</div>
+        </a>
       </div>
       
       <div>
         <div class="section-header">
           <h2>Notifications</h2>
-          <a href="#" class="view-all-link">View all</a>
         </div>
         <p>No new notifications</p>
+        
+        <a href="#" class="dashboard-btn">
+          <div>View all notifications</div>
+        </a>
       </div>
       
       <div>
