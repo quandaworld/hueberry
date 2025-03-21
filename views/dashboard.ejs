@@ -96,7 +96,10 @@
         <div class="section-header">
           <h2>Notifications</h2>
         </div>
-        <p>No new notifications</p>
+        <div style="flex: 1; display: flex; flex-direction: column;">
+          <p style="margin-top: 0;">No new notifications</p>
+          <div style="flex: 1;"></div>
+        </div>
         
         <a href="#" class="dashboard-btn">
           <div>View all notifications</div>
@@ -116,7 +119,7 @@
           </div>
           <div class="analytics-item">
             <div class="analytics-label">Most Active Project</div>
-            <div class="analytics-value" style="font-size: 1.5rem;">
+            <div class="analytics-value" style="font-size: 1.3rem;">
               <% if (recentProjects && recentProjects.length > 0) { %>
                 <%= recentProjects[0].name %>
               <% } else { %>
