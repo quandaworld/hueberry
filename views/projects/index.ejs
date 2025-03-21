@@ -23,11 +23,9 @@
             </div>
           </a>
           <% projects.forEach(project => { %>
-            <div class="project-card">
+            <div class="project-card" onclick="window.location.href='/projects/<%= project._id %>'">
               <div class="project-header">
-                <h2 class="project-title">
-                  <a href="/projects/<%= project._id %>"><%= project.name %></a>
-                </h2>
+                <h2 class="project-title"><%= project.name %></a></h2>
                 <div class="asset-count">
                   <span><%= project.assets ? project.assets.length : 0 %> assets</span>
                 </div>
@@ -49,8 +47,7 @@
               <% } %>
               
               <div class="project-actions">
-                <a href="/projects/<%= project._id %>" class="btn">View</a>
-                <a href="/projects/edit/<%= project._id %>" class="btn">Edit</a>
+                <a href="/projects/edit/<%= project._id %>" class="btn"><img src="/img/icons/edit.svg" alt="Edit icon"></a>
               </div>
             </div>
           <% }); %>
@@ -58,9 +55,12 @@
       <% } else { %>
         <div class="empty-state">
           <div class="empty-state-content">
-            <h2>No projects yet</h2>
-            <p>Create your first project to start organizing your visuals</p>
-            <a href="/projects/new" class="btn btn-primary btn-lg">Create Project</a>
+            <a href="/projects/new" class="project-card create-project-btn">
+              <div class="create-project-content">
+                <span>+</span>
+                <span>Create a project</span>
+              </div>
+            </a>
           </div>
         </div>
       <% } %>
