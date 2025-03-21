@@ -110,10 +110,6 @@ header nav {
   font-size: 1.1rem;
 }
 
-.left-links a:hover {
-  color: #3182ce;
-}
-
 /* Auth links on the right */
 .auth-links > div {
   display: flex;
