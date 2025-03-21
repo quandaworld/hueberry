@@ -10,7 +10,7 @@ While working as a cashier for Target, I noticed that beyond their iconic red, t
 
 ## Getting Started
 
-* [Find your hue here]()
+* [Find your hue here](https://hueberry-3fc9d323e30c.herokuapp.com/)
 * [Trello](https://trello.com/b/S5EWF8lt/hueberry-color-analytics-platform/)
 
 ## Attributions
