@@ -37,8 +37,13 @@
         <% }) %>
       </div>
     <% } else { %>
-      <div class="empty-state">
-        <p>No visuals found. <a href="/assets/upload">Upload your first visual</a></p>
+      <div class="asset-grid">
+        <a href="/assets/upload" class="asset-card add-visual-btn">
+          <div class="add-visual-content">
+            <span>+</span>
+            <span>Add a visual</span>
+          </div>
+        </a>
       </div>
     <% } %>
   </div>
