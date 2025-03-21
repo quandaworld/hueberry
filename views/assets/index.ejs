@@ -16,6 +16,14 @@
     
     <% if (assets && assets.length > 0) { %>
       <div class="asset-grid">
+        <!-- Add Visual button at the top of the first column -->
+        <a href="/assets/upload" class="asset-card add-visual-btn">
+          <div class="add-visual-content">
+            <span>+</span>
+            <span>Add Visual</span>
+          </div>
+        </a>
+        
         <!-- TODO: current assets order is LIFO, keep the order but change layout to grid -->
         <% assets.forEach(asset => { %>
           <div class="asset-card" onclick="window.location.href='/assets/<%= asset._id %>'">
