@@ -20,9 +20,8 @@
 .dashboard-others {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
-  height: auto;
-  min-height: 250px;
+  gap: 2rem;
+  height: 370px;
 }
 
 .dashboard-others > div {
