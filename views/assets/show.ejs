@@ -85,6 +85,12 @@
         <div class="color-palette">
           <div class="info-label">Color Palette:</div>
 
+          <div class="color-bar">
+            <% asset.colors.forEach(color => { %>
+              <div style="background-color: rgb(<%= color.rgb.join(',') %>); width: <%= color.percentage %>%;"></div>
+            <% }) %>
+          </div>
+
           <!-- Individual color swatches with details -->
           <div class="colors-container">
             <% asset.colors.forEach(color => { %>
