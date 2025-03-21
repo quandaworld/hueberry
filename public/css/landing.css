@@ -88,29 +88,39 @@ header nav {
   margin: 0 auto;
 }
 
+/* Left side navigation */
+.left-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .logo-container h1 {
   font-size: 1.8rem;
   margin: 0;
 }
 
-.nav-links {
+.left-links {
   display: flex;
   gap: 2rem;
-  align-items: center;
 }
 
-.nav-links a {
+.left-links a {
   font-weight: 600;
   font-size: 1.1rem;
 }
 
-.nav-links > div {
-  display: flex;
-  gap: 0.5rem;
-  margin-left: 1rem;
+.left-links a:hover {
+  color: #3182ce;
 }
 
-.nav-links > div > a:first-child {
+/* Auth links on the right */
+.auth-links > div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.auth-links > div > a:first-child {
   background-color: white;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -118,17 +128,17 @@ header nav {
   border-bottom: 5px solid var(--border-color);
 }
 
-.nav-links > div > a:first-child:hover {
+.auth-links > div > a:first-child:hover {
   background-color: #F3F4F6;
   transform: translateY(-2px);
 }
 
-.nav-links > div > a:first-child:active {
+.auth-links > div > a:first-child:active {
   transform: translateY(0);
   border-bottom-width: 2px;
 }
 
-.nav-links > div > a:last-child {
+.auth-links > div > a:last-child {
   background-color: var(--accent-color);
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -136,12 +146,12 @@ header nav {
   border-bottom: 5px solid var(--border-color);
 }
 
-.nav-links > div > a:last-child:hover {
+.auth-links > div > a:last-child:hover {
   background-color: var(--button-hover);
   transform: translateY(-2px);
 }
 
-.nav-links > div > a:last-child:active {
+.auth-links > div > a:last-child:active {
   transform: translateY(0);
   border-bottom-width: 2px;
 }
@@ -179,7 +189,11 @@ header nav {
     align-items: center;
   }
   
-  .nav-links {
+  .left-nav {
+    gap: 1rem;
+  }
+  
+  .left-links {
     gap: 1rem;
   }
   
@@ -193,12 +207,19 @@ header nav {
 }
 
 @media (max-width: 576px) {
-  .nav-links > a {
-    display: none;
+  header nav {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
   }
   
-  .nav-links > div {
-    display: flex;
+  .left-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .left-links {
+    gap: 0.5rem;
   }
   
   .left-section h2 {
