@@ -1,0 +1,186 @@
+:root {
+  --border-color: #082f49;
+  --font-color: #082f49;
+  --background-color: #F5F5F5;
+  --accent-color: #facc15;
+  --button-hover: #f59e0b;
+}
+
+/* Asset details container styling */
+.asset-details-container {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  margin-top: 1.5rem;
+  flex-direction: row;
+}
+
+/* Color bar styling */
+.color-bar {
+  display: flex;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+.color-palette .color-bar {
+  margin-bottom: 1rem;
+}
+
+/* Asset image container styling - left side */
+.asset-image-container {
+  width: 50%;
+  padding-right: 2rem;
+}
+
+.asset-image-container img {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Asset info styling - right side */
+.asset-info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Info grid styling */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #4B5563;
+}
+
+.info-value {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.text-muted {
+  color: #9CA3AF;
+}
+
+/* Tags styling */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background-color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+}
+
+/* Color palette styling */
+.color-palette {
+  margin-bottom: 2rem;
+}
+
+.colors-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.color-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid #E5E7EB;
+}
+
+.color-info {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.color-rgb {
+  margin-bottom: 0.25rem;
+}
+
+/* Asset actions styling */
+.asset-actions {
+  display: flex;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+
+.action-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.action-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.asset-actions .btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.asset-actions .btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .asset-details-container {
+    flex-direction: column;
+  }
+  
+  .asset-image-container,
+  .asset-info {
+    width: 100%;
+    padding-right: 0;
+  }
+  
+  .asset-image-container {
+    margin-bottom: 2rem;
+  }
+}
