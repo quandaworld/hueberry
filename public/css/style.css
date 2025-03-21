@@ -203,7 +203,7 @@ button {
 }
 
 .project-title a {
-  color: #333;
+  color: var(--font-color);
   text-decoration: none;
 }
 
