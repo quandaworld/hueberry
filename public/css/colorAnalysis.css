@@ -10,61 +10,51 @@
   color: var(--font-color);
 }
 
-/* Color palette section styling */
+/* Color palette styling */
 .color-palette {
-  margin: 20px 0;
-}
-
-.info-label {
-  font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 2rem;
 }
 
 .colors-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .color-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
 }
 
-/* Color swatch styling */
 .color-swatch {
-  width: 80px;
-  height: 80px;
+  width: 16px;
+  height: 16px;
   border-radius: 8px;
-  position: relative;
-}
-
-/* Color information below swatch */
-.color-info {
-  margin-top: 5px;
-  font-size: 0.85rem;
-  text-align: center;
-}
-
-.color-rgb {
-  color: var(--font-color);
-  font-family: monospace;
 }
 
 .color-percentage {
-  font-weight: 500;
-  margin-top: 2px;
-  color:#9CA3B0;
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 
-/* Color bar */
+/* Color bar styling */
 .color-bar {
   display: flex;
-  height: 40px;
   width: 100%;
+  height: 12px;
+  border-radius: 6px;
   overflow: hidden;
-  margin: 20px 0;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+.color-palette .color-bar {
+  margin-bottom: 1rem;
 }
 
 /* Responsive adjustments for color palette */
