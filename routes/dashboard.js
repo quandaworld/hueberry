@@ -6,7 +6,7 @@ const Asset = require("../models/asset");
 
 router.get("/", ensureAuthenticated, async (req, res) => {
   try {
-    // Get 4 most recently updated projects
+    // Get 3 most recently updated projects
     const recentProjects = await Project.find({ createdBy: req.user._id })
       .populate({
         path: 'assets',
@@ -14,7 +14,7 @@ router.get("/", ensureAuthenticated, async (req, res) => {
         options: { limit: 4 }
       })
       .sort({ updatedAt: -1 })
-      .limit(4);
+      .limit(3);
     
     // Get recent uploads
     const recentUploads = await Asset.find({ createdBy: req.user._id })
