@@ -63,6 +63,11 @@ button {
   align-items: center;
 }
 
+.nav-links a {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
 .nav-left {
   gap: 2rem;
 }
