@@ -6,39 +6,124 @@
   <title>Hueberry | Dashboard</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/dropdown.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
   <%- include('partials/header') %>
   
   <div class="container" id="dashboard-container">
+    <h2>Recent Projects</h2>
     <div class="dashboard-projects">
-      <div>
-        <h2>Projects</h2>
-        <!-- TODO: 3 recent projects -->
-      </div>
-      <div>
-        <a href="/projects/new">Create a project</a>
-        <a href="/projects">View all projects</a>
+      <% if (recentProjects && recentProjects.length > 0) { %>
+        <% recentProjects.forEach(project => { %>
+          <div class="dashboard-project-card" onclick="window.location.href='/projects/<%= project._id %>'">
+            <% if (project.assets && project.assets.length > 0) { %>
+              <div class="project-thumbnails">
+                <% 
+                  const thumbnailLimit = Math.min(4, project.assets.length);
+                  for (let i = 0; i < thumbnailLimit; i++) {
+                %>
+                  <div class="thumbnail">
+                    <img src="<%= project.assets[i].fileUrl %>" alt="Preview">
+                  </div>
+                <% } %>
+              </div>
+            <% } %>
+
+            <div class="project-header">
+              <h2 class="project-title"><%= project.name %></h2>
+              <div class="asset-count-pill" style="font-size: 12px;">
+                <%= project.assets ? project.assets.length : 0 %> visuals
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <div class="dashboard-project-card" style="justify-content: center; align-items: center;">
+          <p>No projects yet</p>
+        </div>
+        <div></div>
+        <div></div>
+      <% } %>
+      
+      <div class="dashboard-actions">
+        <a href="/projects/new" class="dashboard-btn">
+          <div>
+            <div style="font-size: 24px; margin-bottom: 5px;">+</div>
+            <div>Create a project</div>
+          </div>
+        </a>
+        <a href="/projects" class="dashboard-btn" id="view-all-btn">
+          <div style="color: #3182ce;">View all projects</div>
+        </a>
       </div>
     </div>
+    
     <div class="dashboard-others">
       <div>
-        <h2>Recent Uploads</h2>
-        <!-- TODO: 3 recent uploads -->
-        <button>View all uploads</button>
+        <div class="section-header">
+          <h2>Recent Uploads</h2>
+          <a href="/assets" class="view-all-link">View all</a>
+        </div>
+        
+        <% if (recentUploads && recentUploads.length > 0) { %>
+          <div class="recent-uploads-list">
+            <% recentUploads.forEach(asset => { %>
+              <div class="recent-upload-item" onclick="window.location.href='/assets/<%= asset._id %>'">
+                <div class="recent-upload-thumbnail">
+                  <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>">
+                </div>
+                <div class="recent-upload-info">
+                  <div class="recent-upload-name"><%= asset.fileName %></div>
+                  <div class="recent-upload-date">
+                    <%= new Date(asset.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) %>
+                  </div>
+                </div>
+              </div>
+            <% }); %>
+          </div>
+        <% } else { %>
+          <p>No uploads yet</p>
+        <% } %>
       </div>
+      
       <div>
-        <h2>Notifications</h2>
-        <!-- TODO: 3 recent notifications -->
-        <button>View all notifications</button>
+        <div class="section-header">
+          <h2>Notifications</h2>
+          <a href="#" class="view-all-link">View all</a>
+        </div>
+        <p>No new notifications</p>
       </div>
+      
       <div>
         <h2>Analytics</h2>
-        <div>
-          <div>Total Projects</div>
-          <div>Total Assets Uploaded</div>
-          <div>Most Active Project</div>
-          <div>Trending Colors</div>
+        <div class="analytics-grid">
+          <div class="analytics-item">
+            <div class="analytics-label">Total Projects</div>
+            <div class="analytics-value"><%= analytics.totalProjects %></div>
+          </div>
+          <div class="analytics-item">
+            <div class="analytics-label">Total Assets</div>
+            <div class="analytics-value"><%= analytics.totalAssets %></div>
+          </div>
+          <div class="analytics-item">
+            <div class="analytics-label">Most Active Project</div>
+            <div class="analytics-value">
+              <% if (recentProjects && recentProjects.length > 0) { %>
+                <%= recentProjects[0].name %>
+              <% } else { %>
+                -
+              <% } %>
+            </div>
+          </div>
+          <div class="analytics-item">
+            <div class="analytics-label">Trending Colors</div>
+            <div class="analytics-value" style="display: flex; gap: 5px;">
+              <span style="display: inline-block; width: 20px; height: 20px; background-color: #3182ce; border-radius: 4px;"></span>
+              <span style="display: inline-block; width: 20px; height: 20px; background-color: #10b981; border-radius: 4px;"></span>
+              <span style="display: inline-block; width: 20px; height: 20px; background-color: #f59e0b; border-radius: 4px;"></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
