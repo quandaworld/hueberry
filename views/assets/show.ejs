@@ -31,23 +31,22 @@
       <div class="asset-info">
         <div class="info-grid">
           <div class="info-item">
-            <div class="info-label">File Name:</div>
-            <div class="info-value"><%= asset.fileName %></div>
+            <div class="info-label" id="fileName"><%= asset.fileName.toUpperCase() %></div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Owner:</div>
+            <div class="info-value"><%= asset.createdBy.firstName %> <%= asset.createdBy.lastName %></div>
           </div>
           
           <div class="info-item">
             <div class="info-label">Uploaded:</div>
-            <div class="info-value"><%= new Date(asset.createdAt).toLocaleDateString() %></div>
+            <div class="info-value"><%= new Date(asset.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></div>
           </div>
           
           <div class="info-item">
             <div class="info-label">File Type:</div>
             <div class="info-value"><%= asset.fileType.split('/')[1] %></div>
-          </div>
-          
-          <div class="info-item">
-            <div class="info-label">Owner:</div>
-            <div class="info-value"><%= asset.createdBy.firstName %> <%= asset.createdBy.lastName %></div>
           </div>
 
           <div class="info-item">
@@ -61,8 +60,18 @@
             </div>
           </div>
 
+          <div class="info-item notes-item">
+            <div class="info-label">Notes:</div>
+            <div class="info-value">
+              <% if (asset.notes && asset.notes.trim().length > 0) { %>
+                <%= asset.notes %>
+              <% } else { %>
+                <span class="text-muted">No notes</span>
+              <% } %>
+            </div>
+          </div>
+
           <div class="info-item">
-            <div class="info-label">Tags:</div>
             <div class="info-value tags-container">
               <% asset.tags.forEach(tag => { %>
                 <!-- TODO: style these tags -->
@@ -70,6 +79,7 @@
               <% }) %>
             </div>
           </div>
+
         </div>
         
         <div class="color-palette">
@@ -82,10 +92,8 @@
                 <div class="color-swatch" 
                      style="background-color: rgb(<%= color.rgb.join(',') %>)">
                 </div>
-                <div class="color-info">
-                  <div class="color-rgb"><%= '#' + ((1 << 24) + (color.rgb[0] << 16) + (color.rgb[1] << 8) + color.rgb[2]).toString(16).slice(1).toUpperCase() %></div>
-                  <div class="color-percentage"><%= color.percentage %>%</div>
-                </div>
+                <div class="color-hex"><%= '#' + ((1 << 24) + (color.rgb[0] << 16) + (color.rgb[1] << 8) + color.rgb[2]).toString(16).slice(1).toUpperCase() %></div>
+                <div class="color-percentage"><%= color.percentage %>%</div>
               </div>
             <% }) %>
           </div>
