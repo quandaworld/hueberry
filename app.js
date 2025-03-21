@@ -15,6 +15,7 @@ const passportConfig = require("./config/passport");
 const authRoutes = require("./routes/auth");
 const assetRoutes = require("./routes/assets");
 const projectRoutes = require("./routes/projects");
+const dashboardRoutes = require("./routes/dashboard");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -64,15 +65,11 @@ app.set("views", path.join(__dirname, "views"));
 app.use("/auth", authRoutes);
 app.use("/assets", assetRoutes);
 app.use("/projects", projectRoutes);
+app.use("/dashboard", dashboardRoutes);
 
 // Home route
 app.get("/", (req, res) => {
   res.render("index");
-});
-
-// Dashboard route
-app.get("/dashboard", ensureAuthenticated, (req, res) => {
-  res.render("dashboard");
 });
 
 app.listen(PORT, () => {
