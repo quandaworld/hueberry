@@ -33,10 +33,6 @@
   font-weight: 600;
 }
 
-.dropdown-menu li a:hover {
-  font-weight: 900;
-}
-
 .dropdown-divider {
   border-top: 1px solid #e5e7eb;
   margin: 5px 0;

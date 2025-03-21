@@ -378,7 +378,6 @@ footer p {
   font-size: 2rem;
 }
 
-/* Create project button styling */
 .create-project-btn {
   background-color: #34d399;
   display: flex;
@@ -388,6 +387,17 @@ footer p {
   cursor: pointer;
   border: 2px solid var(--border-color);
   border-bottom: 5px solid var(--border-color);
+}
+
+.empty-state {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.empty-state-content {
+  width: 255px;
 }
 
 .create-project-btn:hover {
