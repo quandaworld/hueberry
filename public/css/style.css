@@ -117,45 +117,6 @@ button {
   margin: 0;
 }
 
-/* Dashboard styling */
-#dashboard-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  overflow: hidden;
-  height: calc(100vh - 70px);
-}
-
-.dashboard-projects {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: white;
-  border-radius: 12px;
-  padding: 1rem;
-  height: calc((100vh - 120px) / 2);
-}
-
-.dashboard-others {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
-  height: calc((100vh - 120px) / 2);
-}
-
-.dashboard-others > div {
-  background-color: white;
-  border-radius: 12px;
-  padding: 1rem;
-  overflow: hidden;
-}
-
-.dashboard-others h2,
-.dashboard-projects h2 {
-  margin-top: 0;
-  font-size: 1.4rem;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .projects-grid {
