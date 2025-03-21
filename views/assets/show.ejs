@@ -7,26 +7,27 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/dropdown.css">
   <link rel="stylesheet" href="/css/colorAnalysis.css">
+  <link rel="stylesheet" href="/css/assetDetails.css">
 </head>
 <body>
   <%- include('../partials/header') %>
   
   <div class="container">    
     <div class="asset-details-container">
-      <!-- Color Bar (visual representation of color distribution) -->
-      <div class="color-bar">
-        <% asset.colors.forEach(color => { %>
-          <!-- TODO: should width be by percentage? -->
-          <div style="background-color: rgb(<%= color.rgb.join(',') %>); width: <%= color.percentage %>%;"></div>
-        <% }) %>
+      <!-- Action buttons in the upper right corner -->
+      <div class="asset-actions">
+        <a href="/assets/edit/<%= asset._id %>" class="action-icon"><img src="/img/icons/edit.svg" alt="Edit icon"></a>
+        <form action="/assets/<%= asset._id %>?_method=DELETE" method="POST">
+          <button type="submit" class="action-icon"><img src="/img/icons/delete.svg" alt="Delete icon"></button>
+        </form>
       </div>
-
-      <!-- Image on top -->
+      
+      <!-- Image on left -->
       <div class="asset-image-container">
         <img src="<%= asset.fileUrl %>" alt="<%= asset.fileName %>">
       </div>
       
-      <!-- Information below -->
+      <!-- Information on right -->
       <div class="asset-info">
         <div class="info-grid">
           <div class="info-item">
@@ -71,10 +72,9 @@
           </div>
         </div>
         
-        <!-- TODO: convert this palette numbers into color bar, consider keeping the numbers if cannot incorporate in bar -->
         <div class="color-palette">
           <div class="info-label">Color Palette:</div>
-          
+
           <!-- Individual color swatches with details -->
           <div class="colors-container">
             <% asset.colors.forEach(color => { %>
@@ -83,19 +83,12 @@
                      style="background-color: rgb(<%= color.rgb.join(',') %>)">
                 </div>
                 <div class="color-info">
-                  <div class="color-rgb">RGB: <%= color.rgb.join(',') %></div>
+                  <div class="color-rgb"><%= '#' + ((1 << 24) + (color.rgb[0] << 16) + (color.rgb[1] << 8) + color.rgb[2]).toString(16).slice(1).toUpperCase() %></div>
                   <div class="color-percentage"><%= color.percentage %>%</div>
                 </div>
               </div>
             <% }) %>
           </div>
-        </div>
-        
-        <div class="asset-actions">
-          <a href="/assets/edit/<%= asset._id %>" class="btn btn-primary">Edit</a>
-          <form action="/assets/<%= asset._id %>?_method=DELETE" method="POST">
-            <button type="submit" class="btn btn-danger">Delete</button>
-          </form>
         </div>
       </div>
     </div>
