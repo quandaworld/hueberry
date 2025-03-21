@@ -1,17 +1,31 @@
 # Hueberry
 
-![Landing Page](public/img/screenshots/landingPage.png)
-
 ## Backstory
 
 While working as a cashier for Target, I noticed that beyond their iconic red, they used a variety of accent colors that appeared throughout the store. I wondered how their designers ensure that their content consistently follows brand guidelines—not just which colors to use, but in what proportions? This inspired me to create Hueberry, a color analytics platform that automatically extracts, quantifies, and organizes color data from visual assets, helping teams maintain precise brand consistency without the guesswork.
 
 ## Screenshots
 
+![Landing Page](public/img/screenshots/landingPage.png)
+
 ## Getting Started
 
 * [Find your hue here](https://hueberry-3fc9d323e30c.herokuapp.com/)
-* [Trello](https://trello.com/b/S5EWF8lt/hueberry-color-analytics-platform/)
+* [Planning materials - Trello](https://trello.com/b/S5EWF8lt/hueberry-color-analytics-platform/)
+
+## Key Features
+
+- **Color Analytics**: Automatically extracts and analyzes color palettes from uploaded images using advanced algorithms
+- **Visual Organization**: Create projects to group and categorize visual assets for improved management
+- **Color Insights**: View detailed color breakdown for each asset with exact hex codes and proportions
+- **Masonry Gallery View**: Browse your visual assets in a beautiful, responsive grid layout
+- **Project Management**: Organize visuals into projects for better organization and analysis
+- **Cloud Storage**: Secure cloud storage for all visual assets using Cloudinary integration
+- **User Authentication**: Secure login system with Passport.js protecting your valuable brand assets
+- **Responsive Design**: Fully optimized experience across desktop and mobile devices
+- **Custom Tagging**: Add tags to assets for improved organization and searchability
+- **Asset Details**: View comprehensive information about each uploaded visual
+- **Reusable Color Codes**: Easy copy of hex codes for use in design applications
 
 ## Attributions
 
