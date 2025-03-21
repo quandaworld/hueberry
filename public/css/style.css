@@ -319,6 +319,34 @@ footer p {
   height: 100%;
 }
 
+/* Add-a-visual button styling */
+.add-visual-btn {
+  background-color: #34d399;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid var(--border-color);
+  border-bottom: 5px solid var(--border-color);
+}
+
+.add-visual-btn:hover {
+  background-color: #10b981;
+  transform: translateY(-5px);
+}
+
+.add-visual-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.add-visual-content span:first-child {
+  font-size: 2rem;
+}
+
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .asset-grid {
