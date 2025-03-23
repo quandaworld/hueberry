@@ -29,7 +29,9 @@
       <div class="asset-info">
         <div class="info-grid">
           <div class="info-item">
-            <div class="info-label" id="fileName"><%= asset.fileName.toUpperCase() %></div>
+            <div class="info-label" id="fileName">
+              <%= asset.fileName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') %>
+            </div>
           </div>
 
           <div class="info-item">
