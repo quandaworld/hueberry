@@ -1,5 +1,7 @@
 # Hueberry
 
+[Check out Hueberry here](https://hueberry-3fc9d323e30c.herokuapp.com/)
+
 ## Backstory
 
 While working as a cashier for Target, I noticed that beyond their iconic red, they used a variety of accent colors that appeared throughout the store. I wondered how their designers ensure that their content consistently follows brand guidelines—not just which colors to use, but in what proportions? This inspired me to create Hueberry, a color analytics platform that automatically extracts, quantifies, and organizes color data from visual assets, helping teams maintain precise brand consistency without the guesswork.
@@ -7,10 +9,16 @@ While working as a cashier for Target, I noticed that beyond their iconic red, t
 ## Screenshots
 
 ![Landing Page](public/img/screenshots/landingPage.png)
+![Authentication](public/img/screenshots/auth.png)
+![Dashboard](public/img/screenshots/dashboard.png)
+![Asset Details](public/img/screenshots/assetDetails.png)
+![Projects](public/img/screenshots/allProjects.png)
+![My Visuals](public/img/screenshots/allVisuals.png)
+![Upload](public/img/screenshots/newAsset.png)
+![New Project](public/img/screenshots/newProject.png)
 
 ## Getting Started
 
-* [Find your hue here](https://hueberry-3fc9d323e30c.herokuapp.com/)
 * [Planning materials - Trello](https://trello.com/b/S5EWF8lt/hueberry-color-analytics-platform/)
 
 ## Key Features
