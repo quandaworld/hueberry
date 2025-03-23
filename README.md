@@ -1,6 +1,6 @@
 # Hueberry
 
-[Check out Hueberry here](https://hueberry-3fc9d323e30c.herokuapp.com/)
+[View the live site](https://hueberry-3fc9d323e30c.herokuapp.com/)
 
 ## Backstory
 
@@ -19,9 +19,36 @@ While working as a cashier for Target, I noticed that beyond their iconic red, t
 
 ## Getting Started
 
-* [Planning materials - Trello](https://trello.com/b/S5EWF8lt/hueberry-color-analytics-platform/)
+### Prerequisites
+- Node.js and npm installed
+- MongoDB database
+- Cloudinary account for image storage
 
-## Key Features
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/hueberry.git
+   cd hueberry
+2. Install dependencies:
+   ```bash
+   npm install
+4. Install dependencies:
+   ```bash
+   DATABASE_URL=your_mongodb_connection_string
+   SECRET=your_session_secret
+   CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+   CLOUDINARY_API_KEY=your_cloudinary_key
+   CLOUDINARY_API_SECRET=your_cloudinary_secret
+4. Start the application:
+   ```bash
+   npm start
+5. Visit http://localhost:3000 in your browser
+
+## Planning Materials
+
+[Trello](https://trello.com/b/S5EWF8lt/hueberry-color-analytics-platform/)
+
+## Features
 
 - **Color Analytics**: Automatically extracts and analyzes color palettes from uploaded images using advanced algorithms
 - **Visual Organization**: Create projects to group and categorize visual assets for improved management
