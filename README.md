@@ -69,7 +69,7 @@ While working as a cashier for Target, I noticed that beyond their iconic red, t
 
 ## Technologies Used
 
-MongoDB, Express.js, Node.js, JavaScript, EJS, CSS, EJS, node-vibrant, Passport.js, Cloudinary, Heroku, Figma
+MongoDB, Express.js, Node.js, JavaScript, EJS, CSS, node-vibrant, Passport.js, Cloudinary, Heroku, Figma
 
 ## Next Steps
 
