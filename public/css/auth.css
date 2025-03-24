@@ -203,6 +203,9 @@ button[type="submit"]:active {
     width: 95%;
     padding: 1.5rem;
     border-radius: 12px;
+    min-height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
   }
 
   body > div > div:first-child h2 {
@@ -215,5 +218,10 @@ button[type="submit"]:active {
 
   button[type="submit"] {
     width: 100%;
+  }
+  
+  form > div:first-child > .name-row {
+    flex-direction: column;
+    gap: 1.2rem;
   }
 }
