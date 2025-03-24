@@ -142,7 +142,6 @@ button {
   border-radius: 12px;
   border: 2px solid var(--border-color);
   border-bottom: 5px solid var(--border-color);
-  padding: 15px;
   display: flex;
   flex-direction: column;
   height: 280px;
@@ -177,8 +176,8 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 15px;
   margin-top: auto;
-  margin-bottom: 5px;
   padding-top: 12px;
 }
 
@@ -245,7 +244,7 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 4px;
+  gap: 2px;
   margin-bottom: auto;
   margin-top: auto;
   flex-grow: 1;
@@ -255,7 +254,6 @@ button {
 .thumbnail {
   width: 100%;
   height: 100%;
-  border-radius: 4px;
   overflow: hidden;
 }
 
