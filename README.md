@@ -66,6 +66,7 @@ While working as a cashier for Target, I noticed that beyond their iconic red, t
 
 * Fonts: [fonts.google.com](https://fonts.google.com/)
 * Icons: [fontawesome.com](https://fontawesome.com/), [thenounproject.com](https://thenounproject.com/)
+* Demo images: [kurzgesagt.org](https://kurzgesagt.org/)
 
 ## Technologies Used
 
