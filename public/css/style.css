@@ -181,6 +181,10 @@ button {
   padding-top: 12px;
 }
 
+#project-header-show {
+  margin: 0;
+}
+
 /* Project detail page header styling */
 .project-info .project-header {
   display: flex;
