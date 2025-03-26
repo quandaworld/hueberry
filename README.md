@@ -78,7 +78,7 @@ MongoDB, Express.js, Node.js, JavaScript, EJS, CSS, node-vibrant, Passport.js, C
 * Enable batch uploading of multiple visuals – Saves time when analyzing entire campaigns or collections
 * Implement hover effects for interactive elements – Improves user experience by providing visual feedback
 * Develop project-wide color analysis capabilities – Enables broader insights across campaigns rather than individual assets
-* Create organization-level color trend reporting – Helps management understand visual consistency across all brand touch points
+* Create organization-level color trend reporting – Helps management understand visual consistency across all brand touchpoints
 * Build color-based search functionality using hex code input – Allows quick retrieval of assets with specific brand colors
 * Add visual similarity search based on color profiles – Helps teams find complementary visuals for cohesive projects
 * Integrate collaboration features (comments, tags, sharing) – Streamlines approval workflows and reduces feedback cycles
