@@ -233,3 +233,36 @@ exports.deleteAsset = async (req, res) => {
     res.redirect("/assets");
   }
 };
+
+// Search assets by tags
+exports.searchAssets = async (req, res) => {
+  try {
+    const { query } = req.query;
+    
+    // Return to assets page if no query is provided
+    if (!query || query.trim() === '') {
+      return res.redirect('/assets');
+    }
+    
+    // Split the query by commas to allow searching for multiple tags
+    const searchTerms = query
+      .split(/[\,]+/)
+      .map(term => term.trim())
+      .filter(term => term);
+    
+    const assets = await Asset.find({
+      createdBy: req.user._id,
+      tags: { $in: searchTerms }
+    }).sort({ createdAt: -1 });
+    
+    // Render the asset index view but with filtered search results
+    res.render("assets/index", { 
+      assets,
+      searchQuery: query // Pass the search query to display it in the view
+    });
+  } catch (error) {
+    console.error("Error searching assets:", error);
+    req.flash("error", "Error searching assets");
+    res.redirect("/assets");
+  }
+};
