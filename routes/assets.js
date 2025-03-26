@@ -14,6 +14,9 @@ router.post("/upload", uploadImage, assetController.uploadAsset);
 // Asset listing route
 router.get("/", assetController.getUserAssets);
 
+// Asset search route
+router.get("/search", assetController.searchAssets);
+
 // Asset detail route
 router.get("/:id", assetController.getAssetDetails);
 
