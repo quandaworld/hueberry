@@ -59,6 +59,7 @@ While working as a cashier for Target, I noticed that beyond their iconic red, t
 - **User Authentication**: Secure login system with Passport.js protecting your valuable brand assets
 - **Responsive Design**: Fully optimized experience across desktop and mobile devices
 - **Custom Tagging**: Add tags to assets for improved organization and searchability
+- **Smart Search**: Find assets quickly with tag-based filtering to easily locate specific visuals
 - **Asset Details**: View comprehensive information about each uploaded visual
 - **Reusable Color Codes**: Easy copy of hex codes for use in design applications
 
