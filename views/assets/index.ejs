@@ -13,7 +13,11 @@
   
   <div class="container">
     <div class="page-header-container">
-      <div class="page-header">My Visuals</div>
+      <% if (typeof searchQuery !== 'undefined' && searchQuery) { %>
+        <div class="page-header">Search Results: "<%= searchQuery %>"</div>
+      <% } else { %>
+        <div class="page-header">My Visuals</div>
+      <% } %>
       <span class="asset-count-pill"><%= assets ? assets.length : 0 %> visuals</span>
     </div>
     
@@ -37,6 +41,11 @@
         <% }) %>
       </div>
     <% } else { %>
+      <% if (typeof searchQuery !== 'undefined' && searchQuery) { %>
+        <div class="no-results-message">
+          <p>No visuals found with tags matching "<%= searchQuery %>".</p>
+        </div>
+      <% } %>
       <div class="asset-grid">
         <a href="/assets/upload" class="asset-card add-visual-btn">
           <div class="add-visual-content">
