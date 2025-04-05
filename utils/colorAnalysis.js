@@ -8,10 +8,11 @@ async function extractColors(imageUrl, colorCount = 5) {
     // Get the total population to calculate percentages
     const totalPopulation = Object.values(palette).reduce((sum, swatch) => sum + swatch._population, 0);
 
-    // Create array of color objects with rgb values and percentages
+    // Create array of color objects with rgb values, hex values, and percentages
     const colorArray = Object.entries(palette).map(([_, swatch]) => {
       return {
         rgb: swatch._rgb,
+        hex: swatch.hex,
         percentage: parseFloat(
           ((swatch._population / totalPopulation) * 100).toFixed(2)
         ),
