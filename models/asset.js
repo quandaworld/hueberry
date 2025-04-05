@@ -29,6 +29,7 @@ const assetSchema = new mongoose.Schema(
     colors: [
       {
         rgb: [Number],
+        hex: String,
         percentage: Number,
       },
     ],
