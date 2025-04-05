@@ -215,6 +215,14 @@ exports.deleteAsset = async (req, res) => {
       return;
     }
 
+    // Find and update any project that contains this asset
+    const project = await Project.findOne({ assets: asset._id });
+    if (project) {
+      project.assets = project.assets.filter(id => id.toString() !== asset._id.toString());
+      await project.save();
+      console.log(`Asset removed from project ${project.name}`);
+    }
+
     // Delete image from Cloudinary
     if (asset.publicId) {
       const cloudinary = require("cloudinary").v2;
