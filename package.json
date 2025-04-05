@@ -33,6 +33,7 @@
     "multer-storage-cloudinary": "^4.0.0",
     "node-vibrant": "^4.0.3",
     "passport": "^0.7.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "probe-image-size": "^7.2.3"
   }
 }
