@@ -131,7 +131,24 @@ button {
   .projects-grid {
     grid-template-columns: repeat(1, 1fr);
   }
+  
+  .hide-on-mobile {
+    display: none;
+  }
+  
+  .mobile-only {
+    display: block;
+  }
+  
+  .nav-left {
+    gap: 1rem;
+  }
+  
+  .nav-right {
+    gap: 0.8rem;
+  }
 }
+
 
 /* Project Grid */
 .projects-grid {

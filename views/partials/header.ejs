@@ -5,15 +5,15 @@
         <h1 style="font-size: 1.8rem;">Hueberry</h1>
       </div>
       <div class="nav-links">
-        <a href="/dashboard">Home</a>
-        <a href="/projects">Projects</a>
-        <a href="/assets">My Visuals</a>
+        <a href="/dashboard" class="hide-on-mobile">Home</a>
+        <a href="/projects" class="hide-on-mobile">Projects</a>
+        <a href="/assets" class="hide-on-mobile">My Visuals</a>
         <a href="/assets/upload" id="upload">Upload</a>
       </div>
     </div>
 
     <div class="nav-right">
-      <div>
+      <div class="hide-on-mobile">
         <form action="/assets/search" method="GET">
           <input type="text" name="query" placeholder="Search visuals by tags..." id="search-bar"/>
         </form>
@@ -28,6 +28,8 @@
         <div id="user-dropdown" style="display: none;">
           <ul class="dropdown-menu">
             <li><a href="/dashboard">Home</a></li>
+            <li class="mobile-only"><a href="/projects">Projects</a></li>
+            <li class="mobile-only"><a href="/assets">My Visuals</a></li>
             <li><a href="">Profile</a></li>
             <li><a href="">Settings</a></li>
             <li class="dropdown-divider"></li>

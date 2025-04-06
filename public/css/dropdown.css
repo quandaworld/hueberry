@@ -41,3 +41,15 @@
   border-top: 1px solid #e5e7eb;
   margin: 5px 0;
 }
+
+/* Hide mobile-only elements by default */
+.mobile-only {
+  display: none;
+}
+
+/* Show mobile-only elements in dropdown on mobile screens */
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block;
+  }
+}
