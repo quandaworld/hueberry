@@ -122,6 +122,7 @@
 @media (max-width: 768px) {
   .asset-details-container {
     flex-direction: column;
+    padding: 1rem;
   }
   
   .asset-image-container,
@@ -132,5 +133,14 @@
   
   .asset-image-container {
     margin-bottom: 2rem;
+  }
+  
+  .asset-actions {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
   }
 }
