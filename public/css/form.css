@@ -192,6 +192,9 @@ small {
 @media (max-width: 768px) {
   .form-container, .form-container.asset-upload {
     flex-direction: column;
+    height: auto;
+    max-height: none;
+    padding: 1.5rem 1.5rem;
   }
   
   .form-content,
@@ -202,8 +205,35 @@ small {
     margin-right: 0;
   }
   
+  .form-container.asset-upload .image-actions-container {
+    height: auto;
+  }
+  
+  .form-container.asset-upload .project-demo {
+    max-height: 300px;
+    min-height: auto;
+  }
+  
   .project-demo {
     max-width: 100%;
     margin-top: 1.5rem;
+  }
+  
+  .form-container.asset-upload .form-actions {
+    padding-top: 1rem;
+  }
+  
+  .project-form {
+    margin-right: 0;
+    width: 100%;
+  }
+  
+  .form-control {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .form-group {
+    width: 100%;
   }
 }
