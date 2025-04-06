@@ -68,6 +68,10 @@ button {
   font-size: 1.1rem;
 }
 
+.nav-links a:not(#upload):hover {
+  color: #3182ce;
+}
+
 .nav-left {
   gap: 2rem;
 }
