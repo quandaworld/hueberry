@@ -1,7 +1,7 @@
 :root {
   --border-color: #082f49;
   --font-color: #082f49;
-  --background-color: #F5F5F5;
+  --background-color: #eafdf3;
   --accent-color: #facc15;
   --button-hover: #f59e0b;
 }
@@ -109,6 +109,10 @@ header nav {
 .left-links a {
   font-weight: 600;
   font-size: 1.1rem;
+}
+
+.left-links a:hover {
+  color: #3182ce;
 }
 
 /* Auth links on the right */
