@@ -65,9 +65,13 @@ While working as a cashier for Target, I noticed that beyond their iconic red, t
 
 ## Attributions
 
-* Fonts: [fonts.google.com](https://fonts.google.com/)
-* Icons: [fontawesome.com](https://fontawesome.com/), [thenounproject.com](https://thenounproject.com/)
-* Demo images: [kurzgesagt.org](https://kurzgesagt.org/)
+- Fonts: [fonts.google.com](https://fonts.google.com/)
+- Icons: [fontawesome.com](https://fontawesome.com/), [thenounproject.com](https://thenounproject.com/)
+- Demo images: 
+   - [kurzgesagt.org](https://kurzgesagt.org/)
+   - [Vietnam's Architectural Culture - behance.net](https://www.behance.net/gallery/100515447/Vietnams-Architectural-Culture)
+   - [Lego Campaign Design - behance.net](https://www.behance.net/gallery/220888301/LEGO-CAMPAIGN-DESIGN-(ADVERTISING))
+   - [Spotify Music Mobile App - behance.net](https://www.behance.net/gallery/216237933/Spotify-Music-Mobile-App)
 
 ## Technologies Used
 
