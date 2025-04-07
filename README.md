@@ -9,6 +9,7 @@ While working as a cashier for Target, I noticed that beyond their iconic red, t
 ## Screenshots
 
 ![Landing Page](public/img/screenshots/landingPage.png)
+![Mobile Layout](public/img/screenshots/mobileLayout.png)
 ![Authentication](public/img/screenshots/auth.png)
 ![Dashboard](public/img/screenshots/dashBoard.png)
 ![Projects](public/img/screenshots/allProjects.png)
