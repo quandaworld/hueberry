@@ -19,6 +19,10 @@ While working as a cashier for Target, I noticed that beyond their iconic red, t
 ![Upload](public/img/screenshots/newAsset.png)
 ![New Project](public/img/screenshots/newProject.png)
 
+## System Design
+
+![System Design](public/img/screenshots/systemDesign.png)
+
 ## Getting Started
 
 ### Prerequisites
